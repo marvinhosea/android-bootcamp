@@ -48,8 +48,24 @@ fun main() {
 
     fun evaluateHand(userHand: Hand): Int{
 
-        val sumOfCards =
-        return userHand.cards.size
+        var sumCardValue = 0
+
+        for (card in userHand.cards){
+
+            val pip = if (card.pip == "J" || card.pip == "Q" || card.pip == "K"){
+                10
+            } else if (card.pip == "A"){
+                11
+            } else {
+                card.pip.toInt()
+            }
+
+            sumCardValue += when (pip) {
+                in 2..11 -> pip
+                else -> 0
+            }
+        }
+        return sumCardValue
     }
 
     fun printUserCards(cards: MutableList<Card>){
