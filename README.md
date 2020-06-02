@@ -1,6 +1,6 @@
 ## 
 **Profile**
-![](images/profile.jpg)
+![](images/profile.png)
 
 **Full name:** Marvin Collins Hosea 
 
