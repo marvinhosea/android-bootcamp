@@ -3,6 +3,9 @@ data class Card(
         val suit: Char
 )
 
+data class User(val name: String, val hand: Hand)
+data class Hand(val cards: MutableList<Card>)
+
 fun main() {
     fun createDeck(): MutableSet<Card>{
         val cardCollection = mutableSetOf<Card>()
@@ -43,6 +46,12 @@ fun main() {
         return cardsAtHand
     }
 
+    fun evaluateHand(userHand: Hand): Int{
+        
+        val sumOfCards =
+        return userHand.cards.size
+    }
+
     fun printUserCards(cards: MutableList<Card>){
         println("""
             .------.
@@ -56,9 +65,9 @@ fun main() {
                    `______'""".trimIndent())
     }
 
-    val userCardsAtHand = dealHand(cardDeck.toMutableList(), 3)
+    val userCardsAtHand = Hand(dealHand(cardDeck.toMutableList(), 3))
 
-    println(printUserCards(userCardsAtHand))
+    println(evaluateHand(userCardsAtHand))
     println(userCardsAtHand)
     println(cardDeck)
 }
