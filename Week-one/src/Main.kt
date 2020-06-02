@@ -5,6 +5,6 @@ data class Card(
 
 
 fun main() {
-    val card = Card("10", C)
+    val card = Card("10", 'C')
     println(card)
 }
