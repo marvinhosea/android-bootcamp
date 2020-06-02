@@ -43,6 +43,22 @@ fun main() {
         return cardsAtHand
     }
 
-    println(dealHand(cardDeck.toMutableList(), 3))
+    fun printUserCards(cards: MutableList<Card>){
+        println("""
+            .------.
+            |A     |
+            |      .------.
+            |    ${'\u2663'} |K     |
+            |      |      |
+            |      |   ${'\u2663'}  |
+            `______|      |
+                   |     K|
+                   `______'""".trimIndent())
+    }
+
+    val userCardsAtHand = dealHand(cardDeck.toMutableList(), 3)
+
+    println(printUserCards(userCardsAtHand))
+    println(userCardsAtHand)
     println(cardDeck)
 }
