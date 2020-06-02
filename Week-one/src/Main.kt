@@ -69,26 +69,25 @@ fun main() {
     }
 
     fun printUserCards(cards: MutableList<Card>){
-        println("""
-            .------.
-            |A     |
-            |      .------.
-            |    ${'\u2663'} |K     |
-            |      |      |
-            |      |   ${'\u2663'}  |
-            `______|      |
-                   |     K|
-                   `______'""".trimIndent())
+
+        for (card in cards){
+            println("""
+            .--------.
+            |${card.pip}       |
+            |        |
+            |    ${card.suit}   |
+            |        |
+            |        |
+            `________'""".trimIndent())
+        }
     }
 
     fun printResults(user: User, total: Int){
         val messageType = Pair("You Win, Congrats", "You Lose, sorry")
 
-        println("You hand was")
+        println("${user.name}, your hand was")
 
-        for (card in user.hand.cards){
-            println(card.pip + card.suit)
-        }
+        printUserCards(user.hand.cards)
 
         println("For a total of:$total")
 
@@ -100,10 +99,15 @@ fun main() {
             println(lose)
         }
     }
-    val userCardsAtHand = Hand(dealHand(cardDeck.toMutableList(), 3))
+    val userCardsAtHand = Hand(dealHand(cardDeck.toMutableList(), 2))
 
-    val user = User("Marvin", userCardsAtHand)
+    println("What is you name?")
+    val name: String? = readLine()
+
+    val user = name?.let { User(it, userCardsAtHand) }
     val total = evaluateHand(userCardsAtHand)
 
-    printResults(user, total)
+    if (user != null) {
+        printResults(user, total)
+    }
 }
