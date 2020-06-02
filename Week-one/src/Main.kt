@@ -4,8 +4,6 @@ data class Card(
 )
 
 fun main() {
-    val card = Card("10", 'C')
-
     fun createDeck(): MutableSet<Card>{
         val cardCollection = mutableSetOf<Card>()
         val suits = arrayOf('\u2663', '\u2660', '\u2666', '\u2665')
@@ -18,7 +16,33 @@ fun main() {
             }
         }
 
+        val faceCards = arrayOf('J', 'Q', 'K')
+
+        for (faceCard in faceCards){
+            for (suit in suits){
+                cardCollection.add(Card(faceCard.toString(), suit))
+            }
+        }
+
+        for (suit in suits){
+            cardCollection.add(Card("A", suit))
+        }
+
         return cardCollection
     }
 
+    val cardDeck = createDeck()
+
+    fun dealHand(cards: MutableList<Card>, allowCardAtHand: Int): MutableList<Card>{
+        val cardsAtHand = mutableListOf<Card>()
+
+        do {
+            cardsAtHand.add(cards.random())
+        } while (cardsAtHand.size < allowCardAtHand)
+
+        return cardsAtHand
+    }
+
+    println(dealHand(cardDeck.toMutableList(), 3))
+    println(cardDeck)
 }
