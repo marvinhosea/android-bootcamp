@@ -47,7 +47,7 @@ fun main() {
     }
 
     fun evaluateHand(userHand: Hand): Int{
-        
+
         val sumOfCards =
         return userHand.cards.size
     }
