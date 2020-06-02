@@ -1,4 +1,7 @@
-## Bio
+## 
+**Profile**
+![](images/profile.jpg)
+
 **Full name:** Marvin Collins Hosea 
 
 **Discord username:** marvin_hosea 
