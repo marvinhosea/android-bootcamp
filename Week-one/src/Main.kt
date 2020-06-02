@@ -81,9 +81,29 @@ fun main() {
                    `______'""".trimIndent())
     }
 
+    fun printResults(user: User, total: Int){
+        val messageType = Pair("You Win, Congrats", "You Lose, sorry")
+
+        println("You hand was")
+
+        for (card in user.hand.cards){
+            println(card.pip + card.suit)
+        }
+
+        println("For a total of:$total")
+
+        val (win, lose) = messageType
+
+        if (total <= 21){
+            println(win)
+        } else {
+            println(lose)
+        }
+    }
     val userCardsAtHand = Hand(dealHand(cardDeck.toMutableList(), 3))
 
-    println(evaluateHand(userCardsAtHand))
-    println(userCardsAtHand)
-    println(cardDeck)
+    val user = User("Marvin", userCardsAtHand)
+    val total = evaluateHand(userCardsAtHand)
+
+    printResults(user, total)
 }
