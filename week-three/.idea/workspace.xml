@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44ea0793-be97-458d-995e-736f38e49c8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +41,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../android-sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Learning/listmaker" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -123,5 +121,13 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="763" y="353" width="374" height="387" key="AndroidCreateXmlResourceDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592745922628" />
+    <state x="684" y="311" key="FileChooserDialogImpl" timestamp="1592746963962">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="684" y="311" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1592746963962" />
+    <state x="590" y="259" width="738" height="678" key="search.everywhere.popup" timestamp="1592746955844">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="590" y="259" width="738" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592746955844" />
   </component>
 </project>
