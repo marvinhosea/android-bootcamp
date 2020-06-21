@@ -9,9 +9,10 @@
     <string name="serviceDetail">Service Detail</string>
     <string name="serviceName">%1$s</string>
     <string name="serviceDescription">%1$s</string>
-    <string name="servicePrice">KES: %1$d</string>
+    <string name="servicePrice">Price KES: %1$d</string>
     <string name="numberOfService">Total Services: %1$d</string>
     <string name="textStyle">bold</string>
     <string name="serviceNameTitle">Service Name</string>
     <string name="serviceDatailTitle">ServiceDetail</string>
+    <string name="logo_image">Logo image</string>
 </resources>

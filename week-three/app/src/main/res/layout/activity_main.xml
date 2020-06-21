@@ -36,6 +36,7 @@
                         android:id="@+id/imageView2"
                         android:layout_width="157dp"
                         android:layout_height="149dp"
+                        android:contentDescription="@string/logo_image"
                         app:srcCompat="@drawable/logo" />
 
                     <LinearLayout
@@ -47,31 +48,42 @@
                             android:id="@+id/location"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/location" />
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="28dp"
+                            android:text="@string/location"
+                            android:layout_marginStart="16dp" />
 
                         <TextView
                             android:id="@+id/businessName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/businessName" />
+                            android:layout_marginLeft="16dp"
+                            android:text="@string/businessName"
+                            android:layout_marginStart="16dp" />
 
                         <TextView
                             android:id="@+id/email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/emailAddress" />
+                            android:layout_marginLeft="16dp"
+                            android:text="@string/emailAddress"
+                            android:layout_marginStart="16dp" />
 
                         <TextView
                             android:id="@+id/phoneNumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/phoneNumber" />
+                            android:layout_marginLeft="16dp"
+                            android:text="@string/phoneNumber"
+                            android:layout_marginStart="16dp" />
 
                         <TextView
                             android:id="@+id/numberOfService"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/numberOfService" />
+                            android:layout_marginLeft="16dp"
+                            android:text="@string/numberOfService"
+                            android:layout_marginStart="16dp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -90,9 +102,10 @@
                 android:id="@+id/serviceNameTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="@string/serviceNameTitle"
-                android:textStyle="bold"
-                android:textSize="@dimen/fontSize" />
+                android:textSize="@dimen/normalFont"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/serviceName"
@@ -105,9 +118,10 @@
                 android:id="@+id/serviceDetailTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="@string/serviceDatailTitle"
-                android:textStyle="bold"
-                android:textSize="@dimen/fontSize" />
+                android:textSize="@dimen/normalFont"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/serviceDescription"

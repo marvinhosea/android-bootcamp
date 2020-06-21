@@ -3,4 +3,5 @@
     <dimen name="mainPadding">10dp</dimen>
     <dimen name="showServiceButtonTopMargin">16dp</dimen>
     <dimen name="fontSize">18sp</dimen>
+    <dimen name="normalFont">14sp</dimen>
 </resources>
