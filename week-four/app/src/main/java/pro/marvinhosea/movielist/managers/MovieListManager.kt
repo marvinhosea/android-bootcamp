@@ -1,6 +1,6 @@
 package pro.marvinhosea.movielist.managers
 
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 
 class MovieListManager {
     /**
