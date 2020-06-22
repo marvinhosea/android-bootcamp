@@ -10,9 +10,9 @@ import pro.marvinhosea.movielist.R
  * Movie view holder
  */
 class MovieViewHolder(movieView: View): RecyclerView.ViewHolder(movieView) {
-    val moviePosterImageView: ImageView = movieView.findViewById<ImageView>(R.id.image_view)
-    val movieReleaseDate: TextView = movieView.findViewById<TextView>(R.id.release_date)
-    val movieName: TextView = movieView.findViewById<TextView>(R.id.movie_name)
-    val movieSummary: TextView = movieView.findViewById<TextView>(R.id.movie_summary)
-    val movieGenre: TextView = movieView.findViewById<TextView>(R.id.movie_genre)
+    val moviePosterImageView: ImageView = movieView.findViewById(R.id.image_view)
+    val movieReleaseDate: TextView = movieView.findViewById(R.id.release_date)
+    val movieName: TextView = movieView.findViewById(R.id.movie_name)
+    val movieSummary: TextView = movieView.findViewById(R.id.movie_summary)
+    val movieGenre: TextView = movieView.findViewById(R.id.movie_genre)
 }

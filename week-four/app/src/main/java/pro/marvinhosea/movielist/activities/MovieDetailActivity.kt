@@ -12,7 +12,7 @@ import pro.marvinhosea.movielist.models.Movie
 class MovieDetailActivity : AppCompatActivity() {
 
     //Initiate movie
-    lateinit var movie: Movie
+    private lateinit var movie: Movie
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

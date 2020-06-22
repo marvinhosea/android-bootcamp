@@ -3,8 +3,6 @@ package pro.marvinhosea.movielist
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import pro.marvinhosea.movielist.activities.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
@@ -14,7 +12,7 @@ class MainActivity : AppCompatActivity(), MovieAdapter.MovieListClickListener {
 
     companion object {
 
-        val INTENT_MOVIE_KEY = "movie_detail"
+        const val INTENT_MOVIE_KEY = "movie_detail"
 
     }
 

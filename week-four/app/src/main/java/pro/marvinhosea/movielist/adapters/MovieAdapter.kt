@@ -9,14 +9,14 @@ import pro.marvinhosea.movielist.`view-models`.MovieViewHolder
 import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.models.Movie
 
-class MovieAdapter(private val context: Context, val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(private val context: Context, private val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
 
     //Onclick listener for single view holder clicks
     interface MovieListClickListener {
         fun movieClicked(movie: Movie)
     }
 
-    val movies = MovieController().getAllMovies()
+    private val movies = MovieController().getAllMovies()
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         //Create and inflate view
