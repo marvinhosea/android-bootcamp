@@ -24,19 +24,24 @@ class MainActivity : AppCompatActivity(), MovieAdapter.MovieListClickListener {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         movieRecyclerView.adapter = MovieAdapter(this, this )
-
-//        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
-//        }
     }
 
+    /**
+     * Show movie detail
+     *
+     * @param movie
+     */
     private fun showMovie(movie: Movie){
         val movieIntent = Intent(this, MovieDetailActivity::class.java)
         movieIntent.putExtra(INTENT_MOVIE_KEY, movie)
         startActivity(movieIntent)
     }
 
+    /**
+     * Listen to movie click
+     *
+     * @param movie
+     */
     override fun movieClicked(movie: Movie) {
         showMovie(movie)
     }

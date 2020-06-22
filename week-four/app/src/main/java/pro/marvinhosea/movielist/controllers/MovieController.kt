@@ -3,7 +3,11 @@ package pro.marvinhosea.movielist.controllers
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.models.Movie
 
+/**
+ * Movie controller
+ */
 class MovieController {
+
     //List of my favorite movies
     //The list is private to this class
     private val movies = listOf(
