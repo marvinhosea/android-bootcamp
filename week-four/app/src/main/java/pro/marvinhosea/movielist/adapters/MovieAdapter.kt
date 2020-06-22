@@ -9,9 +9,13 @@ import pro.marvinhosea.movielist.`view-models`.MovieViewHolder
 import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.models.Movie
 
-class MovieAdapter(private val context: Context): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(private val context: Context, val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
 
+    interface MovieListClickListener {
+        fun movieClicked(movie: Movie)
+    }
     val movies = MovieController().getAllMovies()
+    
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.movie_view_holder, parent, false)
@@ -29,5 +33,9 @@ class MovieAdapter(private val context: Context): RecyclerView.Adapter<MovieView
         holder.movieGenre.text = context.getString(R.string.movie_genre , movies[position].genre)
         holder.movieReleaseDate.text = context.getString(R.string.movie_release_date_text, movies[position].releaseDate)
         holder.moviePosterImageView.setImageResource(movies[position].posterId)
+
+        holder.itemView.setOnClickListener{
+            clickListener.movieClicked(movies[position])
+        }
     }
 }

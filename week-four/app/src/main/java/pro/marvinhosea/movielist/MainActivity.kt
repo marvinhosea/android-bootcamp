@@ -1,20 +1,29 @@
 package pro.marvinhosea.movielist
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
+import pro.marvinhosea.movielist.activities.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
+import pro.marvinhosea.movielist.models.Movie
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MovieAdapter.MovieListClickListener {
+
+    companion object {
+
+        val INTENT_MOVIE_KEY = "movie_detail"
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        movieRecyclerView.adapter = MovieAdapter(this)
+        movieRecyclerView.adapter = MovieAdapter(this, this )
 
 //        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -22,19 +31,13 @@ class MainActivity : AppCompatActivity() {
 //        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
+    private fun showMovie(movie: Movie){
+        val movieIntent = Intent(this, MovieDetailActivity::class.java)
+        movieIntent.putExtra(INTENT_MOVIE_KEY, movie)
+        startActivity(movieIntent)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
+    override fun movieClicked(movie: Movie) {
+        showMovie(movie)
     }
 }
