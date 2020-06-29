@@ -11,12 +11,4 @@ import pro.marvinhosea.movielist.fragments.MovieDetailFragment
 import pro.marvinhosea.movielist.models.Movie
 
 class MovieDetailActivity : AppCompatActivity() {
-
-    private lateinit var movie: Movie
-    private lateinit var movieDetailFragment: MovieDetailFragment
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_detail)
-    }
 }

@@ -34,11 +34,11 @@ class MovieDetailFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        detail_image_view.setImageResource(movie.posterId)
-        detail_movie_name.text = getString(R.string.movie_name_text, movie.name)
-        detail_movie_genre.text = getString(R.string.movie_genre, movie.genre)
-        detail_release_date.text = getString(R.string.movie_release_date_text, movie.releaseDate)
-        detail_movie_summary.text = movie.summary
+//        detail_image_view.setImageResource(movie.posterId)
+//        detail_movie_name.text = getString(R.string.movie_name_text, movie.name)
+//        detail_movie_genre.text = getString(R.string.movie_genre, movie.genre)
+//        detail_release_date.text = getString(R.string.movie_release_date_text, movie.releaseDate)
+//        detail_movie_summary.text = movie.summary
     }
 
     companion object {

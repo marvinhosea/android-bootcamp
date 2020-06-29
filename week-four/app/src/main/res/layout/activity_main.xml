@@ -20,9 +20,10 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        class="pro.marvinhosea.movielist.fragments.MovieListFragment"
         android:id="@+id/fragmentContainer" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
