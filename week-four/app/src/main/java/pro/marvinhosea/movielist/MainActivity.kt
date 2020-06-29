@@ -8,22 +8,19 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import pro.marvinhosea.movielist.activities.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
+import pro.marvinhosea.movielist.fragments.MovieListFragment
 import pro.marvinhosea.movielist.models.Movie
 
-class MainActivity : AppCompatActivity(), MovieAdapter.MovieListClickListener {
+class MainActivity : AppCompatActivity(), MovieListFragment.OnFragmentInteractionListener {
 
     companion object {
-
-        val INTENT_MOVIE_KEY = "movie_detail"
-
+        const val INTENT_MOVIE_KEY = "movie_detail"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-
-        movieRecyclerView.adapter = MovieAdapter(this, this )
 
 //        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

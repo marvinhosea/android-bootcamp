@@ -9,7 +9,7 @@ import pro.marvinhosea.movielist.`view-models`.MovieViewHolder
 import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.models.Movie
 
-class MovieAdapter(private val context: Context, val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
 
     interface MovieListClickListener {
         fun movieClicked(movie: Movie)
