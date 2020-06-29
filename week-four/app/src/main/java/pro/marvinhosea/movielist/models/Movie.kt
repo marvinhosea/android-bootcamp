@@ -1,6 +1,5 @@
 package pro.marvinhosea.movielist.models
 
-import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
@@ -12,6 +11,4 @@ data class Movie(
     val genre: String,
     val posterId: Int,
     val releaseDate: String
-): Parcelable{
-
-}
+) : Parcelable

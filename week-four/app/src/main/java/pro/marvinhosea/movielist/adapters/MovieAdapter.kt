@@ -1,5 +1,6 @@
 package pro.marvinhosea.movielist.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -28,10 +29,10 @@ class MovieAdapter(val clickListener: MovieListClickListener): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.movieName.text = context.getString(R.string.movie_name_text, movies[position].name)
+        holder.movieName.text = "Title: ${movies[position].name}"
         holder.movieSummary.text = movies[position].summary
-        holder.movieGenre.text = context.getString(R.string.movie_genre , movies[position].genre)
-        holder.movieReleaseDate.text = context.getString(R.string.movie_release_date_text, movies[position].releaseDate)
+        holder.movieGenre.text = "Genre: ${movies[position].genre}"
+        holder.movieReleaseDate.text = "Release date: ${movies[position].releaseDate}"
         holder.moviePosterImageView.setImageResource(movies[position].posterId)
 
         holder.itemView.setOnClickListener{
