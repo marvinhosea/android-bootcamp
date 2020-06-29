@@ -1,21 +1,23 @@
 package pro.marvinhosea.movielist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import pro.marvinhosea.movielist.repository.SharedPrefRepository
+import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
 
 class UserLoginActivity : AppCompatActivity() {
 
-    private val repositiry = SharedPrefRepository
+    private val repositiry = UserSharedPrefRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_login)
 
         repositiry.init(this)
+        title = "User Login"
 
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
@@ -27,25 +29,32 @@ class UserLoginActivity : AppCompatActivity() {
 
             val loginValidationMessage = checkIfLoginIsValid(getUsername, getPassword)
 
-            Toast.makeText(this, loginValidationMessage, Toast.LENGTH_LONG).show()
+            if (loginValidationMessage.first){
+                val intent = Intent(this, MainActivity::class.java)
+
+                Toast.makeText(this, loginValidationMessage.second, Toast.LENGTH_LONG).show()
+                startActivity(intent)
+            }
+
+            Toast.makeText(this, loginValidationMessage.second, Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun checkIfLoginIsValid(username: String, password: String): String{
+    private fun checkIfLoginIsValid(username: String, password: String): Pair<Boolean, String>{
 
         if (username.isEmpty()){
-            return "Username cannot be empty"
+            return Pair(false, "Username cannot be empty")
         }
 
         if (password.length < 4){
-            return "The password cannot be less than four letters"
+            return Pair(false, "The password cannot be less than four letters")
         }
 
         if (!repositiry.loginUser(username, password)){
             repositiry.registerUser(username, password)
-            return "Registered successfully"
+            return Pair(true, "Registered successfully")
         }
 
-        return "Login successful"
+        return Pair(true, "Login successful")
     }
 }

@@ -3,12 +3,12 @@ package pro.marvinhosea.movielist.repository
 import android.content.Context
 import androidx.preference.PreferenceManager
 
-object SharedPrefRepository: UserRepository {
+object UserSharedPrefRepository: UserRepository {
 
     private lateinit var applicationContext: Context
-    const val USERNAME = "USERNAME"
-    const val USER_PASSWORD = "USER_PASSWORD"
-    const val USER_IS_LOGGED_IN = "USER_IS_LOGGED_IN"
+    private const val USERNAME = "USERNAME"
+    private const val USER_PASSWORD = "USER_PASSWORD"
+    private const val USER_IS_LOGGED_IN = "USER_IS_LOGGED_IN"
 
     private fun sharedPreps() = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 
@@ -28,11 +28,15 @@ object SharedPrefRepository: UserRepository {
         val getUsername = sharedPreps().getString(USERNAME,"")
         val getPassword = sharedPreps().getString(USER_PASSWORD, "")
 
-        if (getUsername?.length!! < 1 || !username.equals(getUsername) ){
+        if (getUsername == null || getPassword == null){
+            return false
+        }
+
+        if (getUsername.isEmpty()){
             return  false
         }
 
-        if (getPassword?.length!! < 4 || !username.equals(getPassword) ){
+        if (getPassword.length < 4){
             return  false
         }
 
@@ -43,7 +47,7 @@ object SharedPrefRepository: UserRepository {
     }
 
     override fun logoutUser() {
-        sharedPreps().edit().clear().apply()
+        sharedPreps().edit().remove(USER_IS_LOGGED_IN).apply()
     }
 
     override fun isUserLoggedIn(): Boolean {
