@@ -17,15 +17,13 @@ class MainActivity : AppCompatActivity(), MovieListFragment.OnFragmentInteractio
         const val INTENT_MOVIE_KEY = "movie_detail"
     }
 
+    private var movieListFragment = MovieListFragment.newInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-
-//        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
-//        }
+        
     }
 
     private fun showMovie(movie: Movie){
