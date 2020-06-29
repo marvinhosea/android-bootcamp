@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.preference.PreferenceManager
 
 object SharedPrefRepository: UserRepository {
-    
+
     private lateinit var applicationContext: Context
     const val USERNAME = "USERNAME"
     const val USER_PASSWORD = "USER_PASSWORD"
+    const val USER_IS_LOGGED_IN = "USER_IS_LOGGED_IN"
 
     private fun sharedPreps() = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 
@@ -16,10 +17,11 @@ object SharedPrefRepository: UserRepository {
     }
 
     override fun registerUser(username: String, password: String) {
-        val editor = sharedPreps().edit();
+        val editor = sharedPreps().edit()
 
         editor.putString(USERNAME, username).apply()
         editor.putString(USER_PASSWORD, password).apply()
+        editor.putBoolean(USER_IS_LOGGED_IN, true).apply()
     }
 
     override fun loginUser(username: String, password: String): Boolean {
@@ -34,10 +36,17 @@ object SharedPrefRepository: UserRepository {
             return  false
         }
 
+        val editor = sharedPreps().edit()
+        editor.putBoolean(USER_IS_LOGGED_IN, true).apply()
+
         return true
     }
 
-    override fun clearUser() {
-        TODO("Not yet implemented")
+    override fun logoutUser() {
+        sharedPreps().edit().clear().apply()
+    }
+
+    override fun isUserLoggedIn(): Boolean {
+        return sharedPreps().getBoolean(USER_IS_LOGGED_IN, false)
     }
 }
