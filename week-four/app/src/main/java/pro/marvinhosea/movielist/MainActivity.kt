@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import pro.marvinhosea.movielist.fragments.MovieListFragment
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
@@ -43,11 +44,15 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout_menu -> logOut()
-//            R.id.marker_color_menu_item -> showMarkerColorDialog()
+            R.id.user_profile -> uploadProfilePhoto()
 //            R.id.map_type_menu_item -> showMapTypeDialog()
 //            R.id.clear_all_drops_menu_item -> showClearAllDialog()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun uploadProfilePhoto(){
+        Toast.makeText(this, "Working", Toast.LENGTH_LONG).show()
     }
 
     private fun logOut(){

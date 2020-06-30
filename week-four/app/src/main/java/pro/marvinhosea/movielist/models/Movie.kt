@@ -1,14 +1,15 @@
 package pro.marvinhosea.movielist.models
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.*
 
-@Parcelize
+@Entity(tableName = "movies_table")
 data class Movie(
-    val id: Int,
+    @PrimaryKey val id: String = UUID.randomUUID().toString(),
     val name: String,
     val summary: String,
     val genre: String,
     val posterId: Int,
     val releaseDate: String
-) : Parcelable
+)

@@ -10,13 +10,13 @@ import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
 
 class UserLoginActivity : AppCompatActivity() {
 
-    private val repositiry = UserSharedPrefRepository
+    private val repository = UserSharedPrefRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_login)
 
-        repositiry.init(this)
+        repository.init(this)
         title = "User Login"
 
         val username = findViewById<EditText>(R.id.username)
@@ -50,8 +50,8 @@ class UserLoginActivity : AppCompatActivity() {
             return Pair(false, "The password cannot be less than four letters")
         }
 
-        if (!repositiry.loginUser(username, password)){
-            repositiry.registerUser(username, password)
+        if (!repository.loginUser(username, password)){
+            repository.registerUser(username, password)
             return Pair(true, "Registered successfully")
         }
 

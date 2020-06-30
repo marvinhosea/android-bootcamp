@@ -1,7 +1,5 @@
 package pro.marvinhosea.movielist.adapters
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,12 +8,12 @@ import pro.marvinhosea.movielist.`view-models`.MovieViewHolder
 import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.models.Movie
 
-class MovieAdapter(val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(private val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
 
     interface MovieListClickListener {
         fun movieClicked(movie: Movie)
     }
-    val movies = MovieController().getAllMovies()
+    private val movies = MovieController().getAllMovies()
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context)
