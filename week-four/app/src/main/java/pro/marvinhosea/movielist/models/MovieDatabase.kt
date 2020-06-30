@@ -9,14 +9,5 @@ public abstract class MovieDatabase : RoomDatabase(){
 
     companion object{
         var INSTANCE: MovieDatabase? = null
-
-        fun getDatabase(context: Context): MovieDatabase {
-            val tempInstance = INSTANCE
-
-            if (tempInstance != null){
-                return tempInstance
-            }
-
-        }
     }
 }
