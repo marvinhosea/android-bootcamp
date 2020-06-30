@@ -1,8 +1,11 @@
 package pro.marvinhosea.movielist.models
 
-import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+
+/**
+ * Movie data class
+ */
 
 @Parcelize
 data class Movie(

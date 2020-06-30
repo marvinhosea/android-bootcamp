@@ -3,7 +3,11 @@ package pro.marvinhosea.movielist.controllers
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.models.Movie
 
+/**
+ * Movie controller
+ */
 class MovieController {
+
     //List of my favorite movies
     //The list is private to this class
     private val movies = listOf(
@@ -25,37 +29,37 @@ class MovieController {
             "animation",
             R.drawable.brave,
             "22/06/2012"),
-        Movie(3,
+        Movie(4,
             "The Grinch",
             "A grumpy Grinch (Benedict Cumberbatch) plots to ruin Christmas for the village of Whoville.",
             "animation",
             R.drawable.grinch,
             "09/11/2018"),
-        Movie(3,
+        Movie(5,
             "Minions ",
             "Minions Stuart, Kevin, and Bob are recruited by Scarlet Overkill, a supervillain who, alongside her inventor husband Herb, hatches a plot to take over the world.",
             "animation",
             R.drawable.minions,
             "10/07/2015"),
-        Movie(3,
+        Movie(6,
             "Peninsula",
             "Sequel to the 2016 South Korean zombie film.",
             "Action",
             R.drawable.peninsula,
             "12/08/2020"),
-        Movie(3,
+        Movie(7,
             "Scoob",
             "Scooby and the gang face their most challenging mystery ever: a plot to unleash the ghost dog Cerberus upon the world. As they race to stop this dogpocalypse, the gang discovers that Scooby has an epic destiny greater than anyone imagined.",
             "Animation",
             R.drawable.scoob,
             "15/05/2020"),
-        Movie(3,
+        Movie(8,
             "The Smurfs",
             "When the evil wizard Gargamel chases the tiny blue Smurfs out of their village, they tumble from their magical world into New York City.",
             "Animation",
             R.drawable.smurfs,
             "29/07/2011"),
-        Movie(3,
+        Movie(9,
             "Spider-Man: Into the Spider-Verse",
             "Teen Miles Morales becomes Spider-Man of his reality, crossing his path with five counterparts from other dimensions to stop a threat for all realities.",
             "Animation",

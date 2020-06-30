@@ -9,14 +9,17 @@ import pro.marvinhosea.movielist.`view-models`.MovieViewHolder
 import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.models.Movie
 
-class MovieAdapter(private val context: Context, val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter(private val context: Context, private val clickListener: MovieListClickListener): RecyclerView.Adapter<MovieViewHolder>() {
 
+    //Onclick listener for single view holder clicks
     interface MovieListClickListener {
         fun movieClicked(movie: Movie)
     }
-    val movies = MovieController().getAllMovies()
+
+    private val movies = MovieController().getAllMovies()
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        //Create and inflate view
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.movie_view_holder, parent, false)
 
@@ -34,6 +37,7 @@ class MovieAdapter(private val context: Context, val clickListener: MovieListCli
         holder.movieReleaseDate.text = context.getString(R.string.movie_release_date_text, movies[position].releaseDate)
         holder.moviePosterImageView.setImageResource(movies[position].posterId)
 
+        //Listen to on movie click event
         holder.itemView.setOnClickListener{
             clickListener.movieClicked(movies[position])
         }
