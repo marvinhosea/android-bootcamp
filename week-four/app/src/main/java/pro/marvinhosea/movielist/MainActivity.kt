@@ -6,12 +6,18 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import pro.marvinhosea.movielist.viewmodels.MovieViewModel
+import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.fragments.MovieListFragment
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
 
 class MainActivity : AppCompatActivity() {
 
     private var userSharedRepository = UserSharedPrefRepository
+    private val movieViewModel by lazy {
+        ViewModelProvider(this).get(MovieViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!userSharedRepository.isUserLoggedIn()){
+        if (!userSharedRepository.isUserLoggedIn()) {
             val intent = Intent(this, UserLoginActivity::class.java)
             startActivity(intent)
         }
@@ -33,6 +39,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+
+        if (!userSharedRepository.isUserLoggedIn()) {
+            val intent = Intent(this, UserLoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -44,18 +55,19 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout_menu -> logOut()
-            R.id.user_profile -> uploadProfilePhoto()
-//            R.id.map_type_menu_item -> showMapTypeDialog()
-//            R.id.clear_all_drops_menu_item -> showClearAllDialog()
+            R.id.duplicate_menu -> {
+                movieViewModel.saveMovie(MovieController.getMovie())
+            }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun uploadProfilePhoto(){
-        Toast.makeText(this, "Working", Toast.LENGTH_LONG).show()
+    private fun uploadProfilePhoto() {
+        //TODO: implement image upload from memory
+//        Toast.makeText(this, "", Toast.LENGTH_LONG).show()
     }
 
-    private fun logOut(){
+    private fun logOut() {
         userSharedRepository.init(this)
         userSharedRepository.logoutUser()
 
