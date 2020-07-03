@@ -3,7 +3,7 @@ package pro.marvinhosea.movielist.repository
 import android.content.Context
 import androidx.preference.PreferenceManager
 
-object UserSharedPrefRepository : UserRepository {
+object UserSharedPrefRepository: UserRepository {
 
     private lateinit var applicationContext: Context
     private const val USERNAME = "USERNAME"
@@ -12,7 +12,7 @@ object UserSharedPrefRepository : UserRepository {
 
     private fun sharedPreps() = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 
-    fun init(context: Context) {
+    fun init(context: Context){
         applicationContext = context
     }
 
@@ -25,19 +25,19 @@ object UserSharedPrefRepository : UserRepository {
     }
 
     override fun loginUser(username: String, password: String): Boolean {
-        val getUsername = sharedPreps().getString(USERNAME, "")
+        val getUsername = sharedPreps().getString(USERNAME,"")
         val getPassword = sharedPreps().getString(USER_PASSWORD, "")
 
-        if (getUsername == null || getPassword == null) {
+        if (getUsername == null || getPassword == null){
             return false
         }
 
-        if (getUsername.isEmpty()) {
-            return false
+        if (getUsername.isEmpty()){
+            return  false
         }
 
-        if (getPassword.length < 4) {
-            return false
+        if (getPassword.length < 4){
+            return  false
         }
 
         val editor = sharedPreps().edit()

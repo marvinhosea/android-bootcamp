@@ -4,7 +4,7 @@ import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.models.Movie
 import java.util.*
 
-object MovieController {
+class MovieController {
 
     private val movies = listOf(
         Movie(UUID.randomUUID().toString(),
@@ -71,6 +71,4 @@ object MovieController {
     fun getAllMovies(): List<Movie>{
         return movies
     }
-
-    fun getMovie(): Movie = movies.random()
 }
