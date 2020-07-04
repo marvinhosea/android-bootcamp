@@ -13,7 +13,7 @@ import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.activities.MovieDetailActivity
 import pro.marvinhosea.movielist.viewmodels.MovieViewModel
 import pro.marvinhosea.movielist.adapters.MovieAdapter
-import pro.marvinhosea.movielist.models.Movie
+import pro.marvinhosea.movielist.data.models.Movie
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     private val movieViewModel by lazy {

@@ -1,7 +1,7 @@
 package pro.marvinhosea.movielist.controllers
 
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.models.Movie
+import pro.marvinhosea.movielist.data.models.Movie
 import java.util.*
 
 object MovieController {

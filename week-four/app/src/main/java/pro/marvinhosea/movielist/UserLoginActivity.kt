@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
+import pro.marvinhosea.movielist.ui.movies.MainActivity
 
 class UserLoginActivity : AppCompatActivity() {
 

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.viewmodels.MovieViewHolder
-import pro.marvinhosea.movielist.models.Movie
+import pro.marvinhosea.movielist.data.models.Movie
 
 class MovieAdapter(
     private val movies: List<Movie>,

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.models.Movie
+import pro.marvinhosea.movielist.data.models.Movie
 
 class MovieDetailActivity : AppCompatActivity() {
 

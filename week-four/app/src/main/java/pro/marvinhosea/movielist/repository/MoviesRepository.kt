@@ -2,9 +2,9 @@ package pro.marvinhosea.movielist.repository
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import pro.marvinhosea.movielist.models.Movie
-import pro.marvinhosea.movielist.models.MovieDao
-import pro.marvinhosea.movielist.models.MovieDatabase
+import pro.marvinhosea.movielist.data.models.Movie
+import pro.marvinhosea.movielist.data.models.MovieDao
+import pro.marvinhosea.movielist.data.models.MovieDatabase
 
 class MoviesRepository(context: Context) {
     private val movieDao: MovieDao by lazy { MovieDatabase.getDatabase(context)!!.movieDao() }

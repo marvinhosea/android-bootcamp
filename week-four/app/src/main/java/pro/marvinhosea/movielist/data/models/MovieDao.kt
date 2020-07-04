@@ -1,4 +1,4 @@
-package pro.marvinhosea.movielist.models
+package pro.marvinhosea.movielist.data.models
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

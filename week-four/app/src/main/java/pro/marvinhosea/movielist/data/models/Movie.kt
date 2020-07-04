@@ -1,4 +1,4 @@
-package pro.marvinhosea.movielist.models
+package pro.marvinhosea.movielist.data.models
 
 import android.os.Parcelable
 import androidx.room.Entity

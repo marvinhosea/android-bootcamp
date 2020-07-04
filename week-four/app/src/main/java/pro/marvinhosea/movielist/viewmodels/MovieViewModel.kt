@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import pro.marvinhosea.movielist.models.Movie
+import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.repository.MoviesRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
