@@ -7,7 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.UserLoginActivity
+import pro.marvinhosea.movielist.ui.login.UserLoginActivity
 import pro.marvinhosea.movielist.viewmodels.MovieViewModel
 import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
