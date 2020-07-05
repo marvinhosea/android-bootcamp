@@ -10,6 +10,9 @@ import pro.marvinhosea.movielist.repository.MoviesRepository
 class AddMovieViewModel(application: Application) : AndroidViewModel(application) {
     private val movieRepository by lazy { MoviesRepository(application) }
 
+    /**
+     * Create a new movie record
+     */
     fun createMovie(movie: Movie) {
         viewModelScope.launch { movieRepository.storeMovie(movie) }
     }

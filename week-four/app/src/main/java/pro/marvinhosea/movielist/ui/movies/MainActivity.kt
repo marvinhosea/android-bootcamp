@@ -57,11 +57,17 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Call Add movie activity
+     */
     private fun addMovie() {
         val intent = Intent(this, AddMovieActivity::class.java)
         startActivity(intent)
     }
 
+    /**
+     * Logout the user
+     */
     private fun logOut() {
         userSharedRepository.init(this)
         userSharedRepository.logoutUser()

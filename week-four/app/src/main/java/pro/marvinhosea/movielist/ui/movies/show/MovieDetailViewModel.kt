@@ -13,10 +13,16 @@ class MovieDetailViewModel(application: Application) : AndroidViewModel(applicat
         MoviesRepository(application)
     }
 
+    /**
+     * Retrieve movie by movie ID
+     */
     fun getMovie(movieId: String): LiveData<Movie> {
         return movieRepository.getMovie(movieId)
     }
 
+    /**
+     * Delete movie
+     */
     fun deleteMovie(movie: Movie) {
         viewModelScope.launch { movieRepository.deleteMovie(movie) }
     }

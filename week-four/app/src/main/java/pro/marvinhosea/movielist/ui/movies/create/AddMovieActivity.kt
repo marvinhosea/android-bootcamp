@@ -46,6 +46,9 @@ class AddMovieActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Validates user movies input
+     */
     private fun validateMovieInput(
         movieName: String,
         movieGenre: String,

@@ -42,6 +42,9 @@ class UserLoginActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Check if user login credentials are valid and fail or login user
+     */
     private fun checkIfLoginIsValid(username: String, password: String): Pair<Boolean, String> {
 
         if (username.isEmpty()) {
