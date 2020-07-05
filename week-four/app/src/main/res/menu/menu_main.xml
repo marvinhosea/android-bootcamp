@@ -4,14 +4,15 @@
 
     <item
         android:id="@+id/user_profile"
-        android:icon="@drawable/kings_man"
+        android:icon="@drawable/movie"
         android:title="@string/profile"
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/duplicate_menu"
+        android:id="@+id/add_movie"
+        android:icon="@android:drawable/ic_input_add"
         android:title="@string/duplicate_random_movie"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/logout_menu"
