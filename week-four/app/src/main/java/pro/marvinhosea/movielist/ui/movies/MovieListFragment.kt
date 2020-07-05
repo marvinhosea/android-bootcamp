@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.activities.MovieDetailActivity
-import pro.marvinhosea.movielist.viewmodels.MovieViewModel
+import pro.marvinhosea.movielist.ui.movies.MovieViewModel
 import pro.marvinhosea.movielist.adapters.MovieAdapter
 import pro.marvinhosea.movielist.data.models.Movie
 
