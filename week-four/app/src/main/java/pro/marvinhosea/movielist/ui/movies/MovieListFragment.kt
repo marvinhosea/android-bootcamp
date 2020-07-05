@@ -1,4 +1,4 @@
-package pro.marvinhosea.movielist.fragments
+package pro.marvinhosea.movielist.ui.movies
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.activities.MovieDetailActivity
-import pro.marvinhosea.movielist.ui.movies.MovieViewModel
+import pro.marvinhosea.movielist.ui.movies.show.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
 import pro.marvinhosea.movielist.data.models.Movie
 
@@ -20,18 +19,9 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
         ViewModelProvider(this).get(MovieViewModel::class.java)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        movieViewModel.movies.observe(viewLifecycleOwner, Observer { movies ->
+        movieViewModel.getAllMovies().observe(viewLifecycleOwner, Observer { movies ->
             movieRecyclerView.adapter = MovieAdapter(movies, this)
         })
     }
@@ -46,7 +36,7 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
 
     override fun movieClicked(movie: Movie) {
         val movieDetailsIntent = Intent(requireContext(), MovieDetailActivity::class.java)
-        movieDetailsIntent.putExtra(getString(R.string.MOVIE_INTENT), movie)
+        movieDetailsIntent.putExtra(getString(R.string.MOVIE_INTENT), movie.id)
         startActivity(movieDetailsIntent)
     }
 }

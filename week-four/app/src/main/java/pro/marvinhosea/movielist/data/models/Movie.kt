@@ -6,13 +6,13 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 
-@Entity(tableName = "movies_table")
+@Entity(tableName = "movies")
 @Parcelize
 data class Movie(
     @PrimaryKey val id: String = UUID.randomUUID().toString(),
     val name: String,
     val summary: String,
     val genre: String,
-    val posterId: Int,
+    val posterLink: String,
     val releaseDate: String
 ) : Parcelable

@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.data.models.Movie
 
 class MovieAdapter(
-    private val movies: MutableList<Movie>,
+    private val movies: List<Movie>,
     private val clickListener: MovieListClickListener
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
@@ -29,11 +30,13 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.movieName.text = "Title: ${movies[position].name}"
-        holder.movieSummary.text = movies[position].summary
-        holder.movieGenre.text = "Genre: ${movies[position].genre}"
-        holder.movieReleaseDate.text = "Release date: ${movies[position].releaseDate}"
-        holder.moviePosterImageView.setImageResource(movies[position].posterId)
+        holder.movieName.text = movies[position].name
+
+        Picasso.get()
+            .load(movies[position].posterLink)
+            .error(R.drawable.grinch)
+            .placeholder(R.drawable.grinch)
+            .into(holder.moviePosterImageView)
 
         holder.itemView.setOnClickListener {
             clickListener.movieClicked(movies[position])
@@ -42,9 +45,6 @@ class MovieAdapter(
 
     class ViewHolder(movieView: View) : RecyclerView.ViewHolder(movieView) {
         val moviePosterImageView: ImageView = movieView.findViewById(R.id.image_view)
-        val movieReleaseDate: TextView = movieView.findViewById(R.id.release_date)
         val movieName: TextView = movieView.findViewById(R.id.movie_name)
-        val movieSummary: TextView = movieView.findViewById(R.id.movie_summary)
-        val movieGenre: TextView = movieView.findViewById(R.id.movie_genre)
     }
 }

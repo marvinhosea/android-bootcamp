@@ -5,19 +5,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.login.UserLoginActivity
-import pro.marvinhosea.movielist.viewmodels.MovieViewModel
-import pro.marvinhosea.movielist.controllers.MovieController
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
+import pro.marvinhosea.movielist.ui.movies.create.AddMovieActivity
 
 class MainActivity : AppCompatActivity() {
 
     private var userSharedRepository = UserSharedPrefRepository
-    private val movieViewModel by lazy {
-        ViewModelProvider(this).get(MovieViewModel::class.java)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         if (!userSharedRepository.isUserLoggedIn()) {
             val intent = Intent(this, UserLoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
     }
@@ -43,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         if (!userSharedRepository.isUserLoggedIn()) {
             val intent = Intent(this, UserLoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -55,16 +52,14 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout_menu -> logOut()
-            R.id.duplicate_menu -> {
-                movieViewModel.saveMovie(MovieController.getMovie())
-            }
+            R.id.add_movie -> addMovie()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun uploadProfilePhoto() {
-        //TODO: implement image upload from memory
-//        Toast.makeText(this, "", Toast.LENGTH_LONG).show()
+    private fun addMovie() {
+        val intent = Intent(this, AddMovieActivity::class.java)
+        startActivity(intent)
     }
 
     private fun logOut() {
@@ -73,5 +68,6 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, UserLoginActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }
