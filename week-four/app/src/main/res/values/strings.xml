@@ -28,7 +28,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="profile">Profile</string>
-    <string name="duplicate_random_movie">Add a random movie from list</string>
+    <string name="duplicate_random_movie">Duplicate random movie</string>
     <string name="logout">Logout</string>
-    <string name="MOVIE_INTENT">movie</string>
 </resources>

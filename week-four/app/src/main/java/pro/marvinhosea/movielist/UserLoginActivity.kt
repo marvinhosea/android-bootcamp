@@ -23,13 +23,13 @@ class UserLoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.password)
         val login = findViewById<Button>(R.id.login)
 
-        login.setOnClickListener {
+        login.setOnClickListener{ view ->
             val getUsername = username.text.toString()
             val getPassword = password.text.toString()
 
             val loginValidationMessage = checkIfLoginIsValid(getUsername, getPassword)
 
-            if (loginValidationMessage.first) {
+            if (loginValidationMessage.first){
                 val intent = Intent(this, MainActivity::class.java)
 
                 Toast.makeText(this, loginValidationMessage.second, Toast.LENGTH_LONG).show()
@@ -40,17 +40,17 @@ class UserLoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkIfLoginIsValid(username: String, password: String): Pair<Boolean, String> {
+    private fun checkIfLoginIsValid(username: String, password: String): Pair<Boolean, String>{
 
-        if (username.isEmpty()) {
+        if (username.isEmpty()){
             return Pair(false, "Username cannot be empty")
         }
 
-        if (password.length < 4) {
+        if (password.length < 4){
             return Pair(false, "The password cannot be less than four letters")
         }
 
-        if (!repository.loginUser(username, password)) {
+        if (!repository.loginUser(username, password)){
             repository.registerUser(username, password)
             return Pair(true, "Registered successfully")
         }

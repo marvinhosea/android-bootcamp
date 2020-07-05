@@ -1,0 +1,195 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+MERGED from [com.android.support:design:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/a5e534f49b0e30ce0391189e5263fc44/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/c70134cc1e88495622f85f4e72933402/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:17:1-32:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/342123431dac505a57d20f844cab7317/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/ee32d1810891eddfe8e293706198f120/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/9ed580b6f373bb0242bdc1bd0a54f5da/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/0bebc7826935681fd326aa3011f22397/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/26cea464309fa53bba82606cf6a97dbf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/a6522fe749ab4a51583bf50f6208c520/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/6f75733b094527323194a6986985807e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.2.aar/2fa0d099e1b8a7d310bc6b114b5c2d8d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/transition-27.0.2.aar/d157889afca71ccc992f9623be878a7a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/b2b39eb0534c78721e6d9745b311f94d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/34339103989108e83217b175ac3026ac/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/eced1047ca9d1eb371be1f914cc3e949/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/cdc0cd55ab3a8917d9def3f9c208eb93/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/7ffd2d5cb945d947f3ca1aaf6e265d2a/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/721e68ee979878d57e68de711fa7555e/AndroidManifest.xml:2:1-6:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/b2622074d6ce20bf8accb1e0e03f29da/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/ac20e07c7d89a1aa8365ee6af9f83350/AndroidManifest.xml:2:1-6:12
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+	package
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:3:3-47
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:1-45:12
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:10:3-77
+	android:name
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:10:20-74
+application
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:12:3-43:17
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:30:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/342123431dac505a57d20f844cab7317/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/342123431dac505a57d20f844cab7317/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/ee32d1810891eddfe8e293706198f120/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/ee32d1810891eddfe8e293706198f120/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/cdc0cd55ab3a8917d9def3f9c208eb93/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/cdc0cd55ab3a8917d9def3f9c208eb93/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/7ffd2d5cb945d947f3ca1aaf6e265d2a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/7ffd2d5cb945d947f3ca1aaf6e265d2a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/721e68ee979878d57e68de711fa7555e/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/721e68ee979878d57e68de711fa7555e/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/ac20e07c7d89a1aa8365ee6af9f83350/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/ac20e07c7d89a1aa8365ee6af9f83350/AndroidManifest.xml:5:5-20
+	android:supportsRtl
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:18:5-31
+	android:label
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:16:5-37
+	android:roundIcon
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:17:5-50
+	android:icon
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:15:5-39
+	android:allowBackup
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:14:5-32
+	android:theme
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:19:5-36
+	android:name
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:13:5-44
+meta-data#com.google.android.geo.API_KEY
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:29:5-31:49
+	android:value
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:31:7-46
+	android:name
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:30:7-52
+activity#com.raywenderlich.android.datadrop.ui.map.MapActivity
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:33:5-41:16
+	android:label
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:35:7-49
+	android:name
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:34:7-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:36:7-40:23
+action#android.intent.action.MAIN
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:37:9-61
+	android:name
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:37:17-58
+category#android.intent.category.LAUNCHER
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:39:9-69
+	android:name
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:39:19-66
+activity#com.raywenderlich.android.datadrop.ui.droplist.DropListActivity
+ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:42:5-71
+	android:name
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml:42:15-59
+uses-sdk
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/a5e534f49b0e30ce0391189e5263fc44/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/a5e534f49b0e30ce0391189e5263fc44/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/c70134cc1e88495622f85f4e72933402/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/c70134cc1e88495622f85f4e72933402/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/342123431dac505a57d20f844cab7317/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/342123431dac505a57d20f844cab7317/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/ee32d1810891eddfe8e293706198f120/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/ee32d1810891eddfe8e293706198f120/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/9ed580b6f373bb0242bdc1bd0a54f5da/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/9ed580b6f373bb0242bdc1bd0a54f5da/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/0bebc7826935681fd326aa3011f22397/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/0bebc7826935681fd326aa3011f22397/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/26cea464309fa53bba82606cf6a97dbf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/26cea464309fa53bba82606cf6a97dbf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/a6522fe749ab4a51583bf50f6208c520/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/a6522fe749ab4a51583bf50f6208c520/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/6f75733b094527323194a6986985807e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/6f75733b094527323194a6986985807e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.2.aar/2fa0d099e1b8a7d310bc6b114b5c2d8d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.2.aar/2fa0d099e1b8a7d310bc6b114b5c2d8d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/transition-27.0.2.aar/d157889afca71ccc992f9623be878a7a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/transition-27.0.2.aar/d157889afca71ccc992f9623be878a7a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/b2b39eb0534c78721e6d9745b311f94d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/b2b39eb0534c78721e6d9745b311f94d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/34339103989108e83217b175ac3026ac/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/34339103989108e83217b175ac3026ac/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/eced1047ca9d1eb371be1f914cc3e949/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/eced1047ca9d1eb371be1f914cc3e949/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/cdc0cd55ab3a8917d9def3f9c208eb93/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.8.0.aar/cdc0cd55ab3a8917d9def3f9c208eb93/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/7ffd2d5cb945d947f3ca1aaf6e265d2a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.8.0.aar/7ffd2d5cb945d947f3ca1aaf6e265d2a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/721e68ee979878d57e68de711fa7555e/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.8.0.aar/721e68ee979878d57e68de711fa7555e/AndroidManifest.xml:4:5-43
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/b2622074d6ce20bf8accb1e0e03f29da/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/b2622074d6ce20bf8accb1e0e03f29da/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/ac20e07c7d89a1aa8365ee6af9f83350/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.8.0.aar/ac20e07c7d89a1aa8365ee6af9f83350/AndroidManifest.xml:4:5-43
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+		ADDED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kodaTheCoder/dev/mobile/android-bootcamp/lesson5/dropit/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:23:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:24:22-64
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.8.0.aar/c1168e1c1344ccc2ab5461bd61eb03d8/AndroidManifest.xml:28:9-32
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/281a895af7d2c3cd094b314303d49804/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/kodaTheCoder/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/3ba7dfd4d1f0f88e0b542afcbb6d59d8/AndroidManifest.xml:24:13-58
