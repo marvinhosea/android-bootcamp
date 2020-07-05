@@ -4,8 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.CoroutineScope
 import pro.marvinhosea.movielist.data.dao.MovieDao
 import pro.marvinhosea.movielist.data.models.Movie
 
@@ -35,12 +33,4 @@ abstract class MovieDatabase : RoomDatabase() {
             }
         }
     }
-
-    private class MovieDatabaseCallback(private val scope: CoroutineScope, private val movies: List<Movie>) : RoomDatabase.Callback(){
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            super.onCreate(db)
-            INSTANCE?.let { database -> }
-        }
-    }
-
 }
