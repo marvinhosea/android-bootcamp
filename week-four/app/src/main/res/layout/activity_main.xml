@@ -23,7 +23,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
-        class="pro.marvinhosea.movielist.fragments.MovieListFragment"
+        class="pro.marvinhosea.movielist.ui.movies.MovieListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
