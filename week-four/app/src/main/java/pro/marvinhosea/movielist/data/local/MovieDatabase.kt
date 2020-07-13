@@ -1,10 +1,10 @@
-package pro.marvinhosea.movielist.data
+package pro.marvinhosea.movielist.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import pro.marvinhosea.movielist.data.dao.MovieDao
+import pro.marvinhosea.movielist.data.local.dao.MovieDao
 import pro.marvinhosea.movielist.data.models.Movie
 
 @Database(entities = [Movie::class], version = 1, exportSchema = false)
