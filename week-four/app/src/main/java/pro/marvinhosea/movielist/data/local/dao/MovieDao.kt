@@ -3,11 +3,12 @@ package pro.marvinhosea.movielist.data.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.OnConflictStrategy.IGNORE
+import androidx.room.OnConflictStrategy.REPLACE
 import pro.marvinhosea.movielist.data.models.Movie
 
 @Dao
 interface MovieDao {
-    @Insert(onConflict = IGNORE)
+    @Insert(onConflict = REPLACE)
     suspend fun storeMovie(movie: Movie)
 
     @Insert(onConflict = IGNORE)
@@ -24,4 +25,7 @@ interface MovieDao {
 
     @Query("SELECT * FROM movies")
     fun fetchMovies(): LiveData<List<Movie>>
+
+    @Query("SELECT * FROM movies")
+    suspend fun fetchAllMovies(): List<Movie>
 }
