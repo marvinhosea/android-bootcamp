@@ -26,6 +26,10 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
         })
     }
 
+    fun getUpcomingMovies(): List<Movie>{
+        return emptyList<Movie>()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
