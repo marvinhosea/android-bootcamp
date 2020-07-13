@@ -3,11 +3,15 @@ package pro.marvinhosea.movielist.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import pro.marvinhosea.movielist.data.models.Movie
-import pro.marvinhosea.movielist.data.dao.MovieDao
-import pro.marvinhosea.movielist.data.MovieDatabase
+import pro.marvinhosea.movielist.data.local.dao.MovieDao
+import pro.marvinhosea.movielist.data.local.MovieDatabase
 
 class MoviesRepository(context: Context) {
     private val movieDao: MovieDao by lazy { MovieDatabase.getDatabase(context).movieDao() }
+
+    private val networkStatusChecker by lazy {
+
+    }
 
     /**
      * Store single more
@@ -26,12 +30,18 @@ class MoviesRepository(context: Context) {
     /**
      * Fetch all movies
      */
-    fun getAllMovies(): LiveData<List<Movie>> = movieDao.fetchMovies()
+    fun getAllMovies(): LiveData<List<Movie>> {
+        return movieDao.fetchMovies()
+    }
+
+    fun getUpcomingMovies(): LiveData<List<Movie>> {
+
+    }
 
     /**
      * Fetch single movie
      */
-    fun getMovie(movieId: String): LiveData<Movie> {
+       suspend fun getMovie(movieId: String): LiveData<Movie> {
         return movieDao.fetchMovieById(movieId)
     }
 
@@ -40,5 +50,9 @@ class MoviesRepository(context: Context) {
      */
     suspend fun deleteMovie(movie: Movie) {
         movieDao.deleteMovie(movie)
+    }
+
+    suspend fun hasMovies(): Boolean {
+        return movieDao.fetchAllMovies().isNotEmpty()
     }
 }
