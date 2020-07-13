@@ -16,7 +16,7 @@ class MovieDetailViewModel(application: Application) : AndroidViewModel(applicat
     /**
      * Retrieve movie by movie ID
      */
-    fun getMovie(movieId: String): LiveData<Movie> {
+    suspend fun getMovie(movieId: String): LiveData<Movie> {
         return movieRepository.getMovie(movieId)
     }
 
