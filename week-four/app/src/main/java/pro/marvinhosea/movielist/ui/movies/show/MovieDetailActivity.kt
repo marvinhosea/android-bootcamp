@@ -21,17 +21,17 @@ class MovieDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
 
-        //Receive the movie intent and assign it to movie as @Movie
+        //Receive the movie intent and assign it to movie as @pro.marvinhosea.movielist.data.models.remote.Movie
         movieId = intent.getStringExtra(getString(R.string.MOVIE_INTENT))
         movieDetailViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
 
-        movieDetailViewModel.getMovie(movieId).observe(this, Observer {
-            it?.let {
-                movie = it
-                displayMovie()
-                title = movie.name
-            }
-        })
+//        movieDetailViewModel.getMovie(movieId).observe(this, Observer {
+//            it?.let {
+//                movie = it
+//                displayMovie()
+//                title = movie.name
+//            }
+//        })
     }
 
     private fun displayMovie() {
