@@ -30,7 +30,7 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.movieName.text = movies[position].name
+        holder.movieName.text = movies[position].id
 
         Picasso.get()
             .load(movies[position].posterLink)
