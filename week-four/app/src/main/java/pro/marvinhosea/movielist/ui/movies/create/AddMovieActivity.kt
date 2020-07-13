@@ -58,19 +58,19 @@ class AddMovieActivity : AppCompatActivity() {
     ): Pair<Boolean, String> {
 
         if (movieName.isEmpty()) {
-            return Pair(false, "Movie name cannot be empty")
+            return Pair(false, "pro.marvinhosea.movielist.data.models.remote.Movie name cannot be empty")
         }
 
         if (movieGenre.isEmpty()) {
-            return Pair(false, "Movie genre cannot be empty")
+            return Pair(false, "pro.marvinhosea.movielist.data.models.remote.Movie genre cannot be empty")
         }
 
         if (movieReleaseDate.isEmpty()) {
-            return Pair(false, "Movie release date cannot be empty")
+            return Pair(false, "pro.marvinhosea.movielist.data.models.remote.Movie release date cannot be empty")
         }
 
         if (moviePosterLink.isEmpty()) {
-            return Pair(false, "Movie poster link cannot be empty")
+            return Pair(false, "pro.marvinhosea.movielist.data.models.remote.Movie poster link cannot be empty")
         }
 
         if (!URLUtil.isValidUrl(moviePosterLink)) {
@@ -78,9 +78,9 @@ class AddMovieActivity : AppCompatActivity() {
         }
 
         if (movieSummary.isEmpty()) {
-            return Pair(false, "Movie release date cannot be empty")
+            return Pair(false, "pro.marvinhosea.movielist.data.models.remote.Movie release date cannot be empty")
         }
 
-        return Pair(true, "Movie added successful")
+        return Pair(true, "pro.marvinhosea.movielist.data.models.remote.Movie added successful")
     }
 }
