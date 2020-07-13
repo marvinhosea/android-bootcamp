@@ -34,14 +34,10 @@ class MoviesRepository(context: Context) {
         return movieDao.fetchMovies()
     }
 
-    fun getUpcomingMovies(): LiveData<List<Movie>> {
-
-    }
-
     /**
      * Fetch single movie
      */
-       suspend fun getMovie(movieId: String): LiveData<Movie> {
+    suspend fun getMovie(movieId: String): LiveData<Movie> {
         return movieDao.fetchMovieById(movieId)
     }
 
