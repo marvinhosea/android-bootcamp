@@ -7,9 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.squareup.picasso.Picasso
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.data.models.remote.Movie
 import pro.marvinhosea.movielist.data.models.response.Result
 
 class MovieAdapter(

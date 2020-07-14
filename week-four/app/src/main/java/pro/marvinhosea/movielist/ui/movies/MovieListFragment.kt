@@ -9,23 +9,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.fragment_movie_list.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.json.JSONObject
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.movies.show.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
-import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.data.models.Success
 import pro.marvinhosea.movielist.data.models.response.Result
 import pro.marvinhosea.movielist.networking.NetworkStatusChecker
 import pro.marvinhosea.movielist.networking.RemoteApi
 import pro.marvinhosea.movielist.networking.buildApiService
+import pro.marvinhosea.movielist.utils.toast
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     private val movieViewModel by lazy {
@@ -47,21 +43,25 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         movieRecyclerView.adapter = adapter
+
+        if (!networkStatusChecker?.hasInternetConnection()!!) {
+            requireContext().toast("No Internet Connection")
+            return
+        }
+
         getUpcomingMovies()
     }
 
     private fun getUpcomingMovies() {
-        networkStatusChecker?.performIfConnectedToInternet {
-            lifecycleScope.launch(Dispatchers.Main) {
-                val results = remoteApi.getUpcomingMovies()
+        lifecycleScope.launch {
+            val results = remoteApi.getUpcomingMovies()
 
-                if (results is Success) {
-                    movieViewModel
-                    adapter.setData(results.data)
-                } else {
-                    Log.d("Error1", "testing ${results.toString()}")
-                    Toast.makeText(activity, "Not working ${results.toString()}", Toast.LENGTH_LONG).show()
-                }
+            if (results is Success) {
+                
+                adapter.setData(results.data)
+            } else {
+                Log.d("Error1", "testing ${results.toString()}")
+                Toast.makeText(activity, "Unable to load images", Toast.LENGTH_LONG).show()
             }
         }
     }
