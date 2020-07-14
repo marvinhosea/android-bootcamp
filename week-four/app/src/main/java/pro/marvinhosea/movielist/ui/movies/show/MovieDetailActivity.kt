@@ -60,6 +60,9 @@ class MovieDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Delete a movie
+     */
     private fun deleteMovie() {
         movieDetailViewModel.deleteMovie(movie)
         this.finish()

@@ -16,6 +16,9 @@ object UserSharedPrefRepository : UserRepository {
         applicationContext = context
     }
 
+    /**
+     * Register user on shared preference
+     */
     override fun registerUser(username: String, password: String) {
         val editor = sharedPreps().edit()
 
@@ -24,6 +27,9 @@ object UserSharedPrefRepository : UserRepository {
         editor.putBoolean(USER_IS_LOGGED_IN, true).apply()
     }
 
+    /**
+     * Login in user by checking user validity
+     */
     override fun loginUser(username: String, password: String): Boolean {
         val getUsername = sharedPreps().getString(USERNAME, "")
         val getPassword = sharedPreps().getString(USER_PASSWORD, "")
@@ -46,10 +52,16 @@ object UserSharedPrefRepository : UserRepository {
         return true
     }
 
+    /**
+     * Logout user and remove user from shared preference
+     */
     override fun logoutUser() {
         sharedPreps().edit().remove(USER_IS_LOGGED_IN).apply()
     }
 
+    /**
+     * Check if user is logged in by checking if @param{USER_IS_LOGGED_IN} is true
+     */
     override fun isUserLoggedIn(): Boolean {
         return sharedPreps().getBoolean(USER_IS_LOGGED_IN, false)
     }
