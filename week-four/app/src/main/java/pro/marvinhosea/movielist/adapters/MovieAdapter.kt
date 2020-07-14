@@ -8,15 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.data.models.response.Result
+import pro.marvinhosea.movielist.data.models.Movie
+
+const val MOVIE_IMG_BASE_PATH = "https://image.tmdb.org/t/p/original/"
 
 class MovieAdapter(
-    private val movies: MutableList<Result>,
+    private val movies: MutableList<Movie>,
     private val clickListener: MovieListClickListener
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     interface MovieListClickListener {
-        fun movieClicked(movie: Result)
+        fun movieClicked(movie: Movie)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,10 +32,10 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.movieName.text = movies[position].id.toString()
+        holder.movieName.text = movies[position].name
 
         Glide.with(holder.itemView)
-            .load("https://image.tmdb.org/t/p/original/${movies[position].poster_path}")
+            .load(MOVIE_IMG_BASE_PATH + movies[position].posterLink)
             .placeholder(R.drawable.grinch)
             .error(R.drawable.grinch)
             .fallback(R.drawable.grinch)
@@ -44,7 +46,7 @@ class MovieAdapter(
         }
     }
 
-    fun setData(data: List<Result>) {
+    fun setData(data: List<Movie>) {
         this.movies.clear()
         this.movies.addAll(data)
         notifyDataSetChanged()

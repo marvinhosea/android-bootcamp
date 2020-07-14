@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.movies.show.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
+import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.data.models.Success
 import pro.marvinhosea.movielist.data.models.response.Result
 import pro.marvinhosea.movielist.networking.NetworkStatusChecker
@@ -46,6 +47,9 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
 
         if (!networkStatusChecker?.hasInternetConnection()!!) {
             requireContext().toast("No Internet Connection")
+            lifecycleScope.launch {
+                adapter.setData(movieViewModel.getAllMovies())
+            }
             return
         }
 
@@ -57,13 +61,35 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
             val results = remoteApi.getUpcomingMovies()
 
             if (results is Success) {
-                
-                adapter.setData(results.data)
+                val movies = formatResponseMovies(results.data)
+
+                adapter.setData(movies)
+
+                movieViewModel.saveMovies(movies)
             } else {
                 Log.d("Error1", "testing ${results.toString()}")
-                Toast.makeText(activity, "Unable to load images", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Problem loading movies", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun formatResponseMovies(moviesResponse: List<Result>): List<Movie> {
+        val movies = mutableListOf<Movie>()
+
+        moviesResponse.forEach {
+            movies.add(
+                Movie(
+                    it.id,
+                    it.title,
+                    it.overview,
+                    it.vote_average,
+                    it.poster_path,
+                    it.release_date
+                )
+            )
+        }
+
+        return movies
     }
 
     override fun onCreateView(
@@ -74,9 +100,10 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
         return inflater.inflate(R.layout.fragment_movie_list, container, false)
     }
 
-    override fun movieClicked(movie: Result) {
+    override fun movieClicked(movie: Movie) {
         val movieDetailsIntent = Intent(requireContext(), MovieDetailActivity::class.java)
-        movieDetailsIntent.putExtra(getString(R.string.MOVIE_INTENT), movie.id)
+        Toast.makeText(activity, movie.id.toString(), Toast.LENGTH_LONG).show()
+        movieDetailsIntent.putExtra(getString(R.string.MOVIE_INTENT), movie.id.toString())
         startActivity(movieDetailsIntent)
     }
 }

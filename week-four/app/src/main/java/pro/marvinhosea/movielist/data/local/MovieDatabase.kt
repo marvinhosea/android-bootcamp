@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import pro.marvinhosea.movielist.data.local.dao.MovieDao
 import pro.marvinhosea.movielist.data.models.Movie
 
-@Database(entities = [Movie::class], version = 1, exportSchema = false)
+@Database(entities = [Movie::class], version = 2, exportSchema = false)
 abstract class MovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
 

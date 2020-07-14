@@ -10,7 +10,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="movie_summary_text" />
-    <string name="movie_genre">Genre: %1$s</string>
+    <string name="movie_rating">Rate : %1$s</string>
     <string name="movie_release_date_text">Release Date: %1$s</string>
     <string name="this_is_the_poster_image">This is the poster image</string>
     <string name="release_date">\"Release date: \"</string>
@@ -29,7 +29,7 @@
     <string name="duplicate_random_movie">Add movie</string>
     <string name="logout">Logout</string>
     <string name="MOVIE_INTENT">movie</string>
-    <string name="delete_movie">delete movie</string>
+    <string name="add_to_watch_list">add to watch list</string>
     <string name="add_movie_name">Movie name</string>
     <string name="add_movie">Add movie</string>
     <string name="addMovieName">Add movie name</string>

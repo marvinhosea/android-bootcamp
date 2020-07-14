@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.login.UserLoginActivity
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
-import pro.marvinhosea.movielist.ui.movies.create.AddMovieActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,17 +51,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout_menu -> logOut()
-            R.id.add_movie -> addMovie()
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    /**
-     * Call Add movie activity
-     */
-    private fun addMovie() {
-        val intent = Intent(this, AddMovieActivity::class.java)
-        startActivity(intent)
     }
 
     /**
