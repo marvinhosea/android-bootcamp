@@ -41,12 +41,6 @@ class MovieAdapter(
             .fallback(R.drawable.grinch)
             .into(holder.moviePosterImageView)
 
-//        Picasso.get()
-//            .load("https://image.tmdb.org/t/p/original/${movies[position].poster_path}")
-//            .error(R.drawable.grinch)
-//            .placeholder(R.drawable.grinch)
-//            .into(holder.moviePosterImageView)
-
         holder.itemView.setOnClickListener {
             clickListener.movieClicked(movies[position])
         }
