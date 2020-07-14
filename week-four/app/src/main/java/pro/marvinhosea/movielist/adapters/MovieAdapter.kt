@@ -6,17 +6,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.data.models.Movie
+import pro.marvinhosea.movielist.data.models.remote.Movie
+import pro.marvinhosea.movielist.data.models.response.Result
 
 class MovieAdapter(
-    private val movies: List<Movie>,
+    private val movies: MutableList<Result>,
     private val clickListener: MovieListClickListener
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     interface MovieListClickListener {
-        fun movieClicked(movie: Movie)
+        fun movieClicked(movie: Result)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,17 +32,30 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.movieName.text = movies[position].id
+        holder.movieName.text = movies[position].id.toString()
 
-        Picasso.get()
-            .load(movies[position].posterLink)
-            .error(R.drawable.grinch)
+        Glide.with(holder.itemView)
+            .load("https://image.tmdb.org/t/p/original/${movies[position].poster_path}")
             .placeholder(R.drawable.grinch)
+            .error(R.drawable.grinch)
+            .fallback(R.drawable.grinch)
             .into(holder.moviePosterImageView)
+
+//        Picasso.get()
+//            .load("https://image.tmdb.org/t/p/original/${movies[position].poster_path}")
+//            .error(R.drawable.grinch)
+//            .placeholder(R.drawable.grinch)
+//            .into(holder.moviePosterImageView)
 
         holder.itemView.setOnClickListener {
             clickListener.movieClicked(movies[position])
         }
+    }
+
+    fun setData(data: List<Result>) {
+        this.movies.clear()
+        this.movies.addAll(data)
+        notifyDataSetChanged()
     }
 
     class ViewHolder(movieView: View) : RecyclerView.ViewHolder(movieView) {
