@@ -42,28 +42,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.logout_menu -> logOut()
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.logout_menu -> logOut()
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
     /**
      * Logout the user
      */
-    private fun logOut() {
-        userSharedRepository.init(this)
-        userSharedRepository.logoutUser()
 
-        val intent = Intent(this, UserLoginActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
 }

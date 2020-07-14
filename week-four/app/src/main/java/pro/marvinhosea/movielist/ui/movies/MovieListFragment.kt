@@ -4,10 +4,8 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -22,12 +20,15 @@ import pro.marvinhosea.movielist.data.models.response.Result
 import pro.marvinhosea.movielist.networking.NetworkStatusChecker
 import pro.marvinhosea.movielist.networking.RemoteApi
 import pro.marvinhosea.movielist.networking.buildApiService
+import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
+import pro.marvinhosea.movielist.ui.login.UserLoginActivity
 import pro.marvinhosea.movielist.utils.toast
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     private val movieViewModel by lazy {
         ViewModelProvider(this).get(MovieViewModel::class.java)
     }
+    private var userSharedRepository = UserSharedPrefRepository
 
     private val adapter by lazy { MovieAdapter(mutableListOf(), this) }
 
@@ -39,6 +40,11 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
 
     private val remoteApi by lazy {
         RemoteApi(apiService)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -54,6 +60,32 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
         }
 
         getUpcomingMovies()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return (when(item.itemId) {
+            R.id.action_add_to_watch_list -> {
+                logOut()
+                return true
+            }
+            else ->
+                super.onOptionsItemSelected(item)
+        })
+    }
+
+    private fun logOut() {
+        Toast.makeText(activity, "demod oedmo", Toast.LENGTH_LONG).show()
+        activity?.applicationContext?.let { userSharedRepository.init(it) }
+        userSharedRepository.logoutUser()
+
+        val intent = Intent(activity, UserLoginActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
     private fun getUpcomingMovies() {
@@ -75,6 +107,15 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
 
     private fun formatResponseMovies(moviesResponse: List<Result>): List<Movie> {
         val movies = mutableListOf<Movie>()
+        val userName = UserSharedPrefRepository.getUserName()
+
+        if (userName.isEmpty()) {
+            val intent = Intent(activity, UserLoginActivity::class.java)
+            UserSharedPrefRepository.logoutUser()
+
+            startActivity(intent)
+            activity?.finish()
+        }
 
         moviesResponse.forEach {
             movies.add(
@@ -84,7 +125,9 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
                     it.overview,
                     it.vote_average,
                     it.poster_path,
-                    it.release_date
+                    it.release_date,
+                    false,
+                    userName
                 )
             )
         }
@@ -102,7 +145,6 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
 
     override fun movieClicked(movie: Movie) {
         val movieDetailsIntent = Intent(requireContext(), MovieDetailActivity::class.java)
-        Toast.makeText(activity, movie.id.toString(), Toast.LENGTH_LONG).show()
         movieDetailsIntent.putExtra(getString(R.string.MOVIE_INTENT), movie.id.toString())
         startActivity(movieDetailsIntent)
     }

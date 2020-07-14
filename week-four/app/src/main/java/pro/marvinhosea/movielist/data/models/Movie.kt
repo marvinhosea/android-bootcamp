@@ -14,5 +14,6 @@ data class Movie(
     val rate: Double,
     val posterLink: String,
     val releaseDate: String,
-    var inWatchList: Boolean = false
+    var inWatchList: Boolean = false,
+    var userName: String
 ) : Parcelable

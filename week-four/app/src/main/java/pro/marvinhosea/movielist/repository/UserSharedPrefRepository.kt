@@ -65,4 +65,8 @@ object UserSharedPrefRepository : UserRepository {
     override fun isUserLoggedIn(): Boolean {
         return sharedPreps().getBoolean(USER_IS_LOGGED_IN, false)
     }
+
+    fun getUserName(): String {
+        return sharedPreps().getString(USERNAME, "")!!
+    }
 }

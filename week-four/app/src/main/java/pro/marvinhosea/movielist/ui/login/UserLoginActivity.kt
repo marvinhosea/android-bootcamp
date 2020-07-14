@@ -36,6 +36,7 @@ class UserLoginActivity : AppCompatActivity() {
 
                 Toast.makeText(this, loginValidationMessage.second, Toast.LENGTH_LONG).show()
                 startActivity(intent)
+                finish()
             }
 
             Toast.makeText(this, loginValidationMessage.second, Toast.LENGTH_LONG).show()

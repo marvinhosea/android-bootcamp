@@ -1,13 +1,12 @@
 package pro.marvinhosea.movielist.data.local.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import androidx.room.OnConflictStrategy.REPLACE
+import androidx.room.OnConflictStrategy.IGNORE
 import pro.marvinhosea.movielist.data.models.Movie
 
 @Dao
 interface MovieDao {
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = IGNORE)
     suspend fun storeMovies(movies: List<Movie>)
 
     @Query("SELECT * FROM movies WHERE id = :id")
