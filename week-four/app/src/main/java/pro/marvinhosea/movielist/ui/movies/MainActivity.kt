@@ -2,8 +2,6 @@ package pro.marvinhosea.movielist.ui.movies
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.login.UserLoginActivity
@@ -41,17 +39,4 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
-
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.logout_menu -> logOut()
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-
-    /**
-     * Logout the user
-     */
-
 }

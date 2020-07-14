@@ -12,7 +12,7 @@ data class Movie(
     val name: String,
     val summary: String,
     val rate: Double,
-    val posterLink: String,
+    val posterLink: String? = null,
     val releaseDate: String,
     var inWatchList: Boolean = false,
     var userName: String

@@ -20,12 +20,12 @@ class MovieDetailActivity : AppCompatActivity() {
     private lateinit var movie: Movie
     private lateinit var movieDetailViewModel: MovieDetailViewModel
     private var drawable = R.drawable.baseline_favorite_border_white_18dp
+    private lateinit var menu: Menu
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
 
-        //Receive the movie intent and assign it to movie as @pro.marvinhosea.movielist.data.models.remote.Movie
         movieId = intent.getStringExtra(getString(R.string.MOVIE_INTENT))
         movieDetailViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
 
@@ -66,12 +66,11 @@ class MovieDetailActivity : AppCompatActivity() {
                 item.setIcon(addToWatchList())
             }
         }
+
         return super.onOptionsItemSelected(item)
     }
 
-    /**
-     * Delete a movie
-     */
+
     private fun addToWatchList(): Int {
         scope.launch {
             movie.inWatchList = !movie.inWatchList

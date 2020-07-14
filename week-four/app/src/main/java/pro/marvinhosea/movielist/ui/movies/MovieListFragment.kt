@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.fragment_movie_list.*
@@ -59,7 +60,7 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
             return
         }
 
-        getUpcomingMovies()
+        getMovies("Top Rated Movies")
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -68,18 +69,25 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return (when(item.itemId) {
-            R.id.action_add_to_watch_list -> {
-                logOut()
-                return true
-            }
-            else ->
-                super.onOptionsItemSelected(item)
-        })
+        when (item.itemId) {
+            R.id.watch_list -> myWatchList()
+            R.id.top_rate -> getMovies("Top Rated Movies")
+            R.id.popular_movies -> getMovies("Popular movies")
+            R.id.now_playing -> getMovies("Now Playing Movies")
+            R.id.upcoming_movies -> getMovies("Upcoming Movies")
+            R.id.logout_menu -> logOut()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun myWatchList() {
+        lifecycleScope.launch {
+            (activity as AppCompatActivity).supportActionBar?.title = "My Watchlist"
+            adapter.setData(movieViewModel.myWatchListMovies())
+        }
     }
 
     private fun logOut() {
-        Toast.makeText(activity, "demod oedmo", Toast.LENGTH_LONG).show()
         activity?.applicationContext?.let { userSharedRepository.init(it) }
         userSharedRepository.logoutUser()
 
@@ -88,15 +96,22 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
         activity?.finish()
     }
 
-    private fun getUpcomingMovies() {
+    private fun getMovies(category: String) {
         lifecycleScope.launch {
-            val results = remoteApi.getUpcomingMovies()
+            val results = when (category) {
+                "Upcoming Movies" -> remoteApi.getUpcomingMovies()
+                "Top Rated Movies" -> remoteApi.getTopRatedMovies()
+                "Now Playing Movies" -> remoteApi.getNowPlayingMovies()
+                else -> {
+                    remoteApi.getPopularMovies()
+                }
+            }
 
             if (results is Success) {
                 val movies = formatResponseMovies(results.data)
 
                 adapter.setData(movies)
-
+                (activity as AppCompatActivity).supportActionBar?.title = category
                 movieViewModel.saveMovies(movies)
             } else {
                 Log.d("Error1", "testing ${results.toString()}")

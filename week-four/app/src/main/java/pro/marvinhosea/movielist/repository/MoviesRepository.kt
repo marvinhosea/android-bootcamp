@@ -1,7 +1,6 @@
 package pro.marvinhosea.movielist.repository
 
 import android.content.Context
-import androidx.lifecycle.LiveData
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.data.local.dao.MovieDao
 import pro.marvinhosea.movielist.data.local.MovieDatabase
@@ -32,5 +31,9 @@ class MoviesRepository(context: Context) {
 
     suspend fun addMovieToWatchList(movie: Movie) {
         movieDao.updateMovie(movie)
+    }
+
+    suspend fun getMyMoviesWatchlist(userName: String, inWatchlist: Boolean = true): List<Movie> {
+        return movieDao.fetchMyWatchlistMovies(userName, inWatchlist)
     }
 }

@@ -17,4 +17,7 @@ interface MovieDao {
 
     @Update
     suspend fun updateMovie(movie: Movie)
+
+    @Query("SELECT * FROM movies WHERE userName = :userName AND inWatchList = :inWatchlist")
+    suspend fun fetchMyWatchlistMovies(userName: String, inWatchlist: Boolean): List<Movie>
 }

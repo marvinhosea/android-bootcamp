@@ -15,4 +15,28 @@ class RemoteApi(private val apiServiceApi: RemoteServiceApi) {
     } catch (error: Throwable){
         Failure(error)
     }
+
+    suspend fun getPopularMovies(): NetworkResult<List<Result>> = try {
+        val data = apiServiceApi.getPopularMovies(API_KEY)
+
+        Success(data.results)
+    } catch (error: Throwable) {
+        Failure(error)
+    }
+
+    suspend fun getTopRatedMovies(): NetworkResult<List<Result>> = try {
+        val data = apiServiceApi.getTopRatedMovies(API_KEY)
+
+        Success(data.results)
+    } catch (error: Throwable) {
+        Failure(error)
+    }
+
+    suspend fun getNowPlayingMovies(): NetworkResult<List<Result>> = try {
+        val data = apiServiceApi.getNowPlayingMovies(API_KEY)
+
+        Success(data.results)
+    } catch (error: Throwable) {
+        Failure(error)
+    }
 }
