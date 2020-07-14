@@ -1,33 +1,69 @@
 package pro.marvinhosea.movielist.ui.movies
 
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.fragment_movie_list.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.json.JSONObject
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.movies.show.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
 import pro.marvinhosea.movielist.data.models.Movie
+import pro.marvinhosea.movielist.data.models.Success
+import pro.marvinhosea.movielist.data.models.response.Result
+import pro.marvinhosea.movielist.networking.NetworkStatusChecker
+import pro.marvinhosea.movielist.networking.RemoteApi
+import pro.marvinhosea.movielist.networking.buildApiService
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     private val movieViewModel by lazy {
         ViewModelProvider(this).get(MovieViewModel::class.java)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        movieViewModel.getAllMovies().observe(viewLifecycleOwner, Observer { movies ->
-            movieRecyclerView.adapter = MovieAdapter(movies, this)
-        })
+    private val adapter by lazy { MovieAdapter(mutableListOf(), this) }
+
+    private val networkStatusChecker by lazy {
+        activity?.getSystemService(ConnectivityManager::class.java)?.let { NetworkStatusChecker(it) }
     }
 
-    fun getUpcomingMovies(): List<Movie>{
-        return emptyList<Movie>()
+    private val apiService by lazy { buildApiService() }
+
+    private val remoteApi by lazy {
+        RemoteApi(apiService)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        movieRecyclerView.adapter = adapter
+        getUpcomingMovies()
+    }
+
+    private fun getUpcomingMovies() {
+        networkStatusChecker?.performIfConnectedToInternet {
+            lifecycleScope.launch(Dispatchers.Main) {
+                val results = remoteApi.getUpcomingMovies()
+
+                if (results is Success) {
+                    movieViewModel
+                    adapter.setData(results.data)
+                } else {
+                    Log.d("Error1", "testing ${results.toString()}")
+                    Toast.makeText(activity, "Not working ${results.toString()}", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 
     override fun onCreateView(
@@ -38,7 +74,7 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
         return inflater.inflate(R.layout.fragment_movie_list, container, false)
     }
 
-    override fun movieClicked(movie: Movie) {
+    override fun movieClicked(movie: Result) {
         val movieDetailsIntent = Intent(requireContext(), MovieDetailActivity::class.java)
         movieDetailsIntent.putExtra(getString(R.string.MOVIE_INTENT), movie.id)
         startActivity(movieDetailsIntent)

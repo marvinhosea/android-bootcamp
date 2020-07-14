@@ -1,12 +1,8 @@
-package pro.marvinhosea.movielist.data.models.remote
+package pro.marvinhosea.movielist.data.models.response
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class Movie(
+data class Result(
     val adult: Boolean,
     val backdrop_path: String,
-    @Transient
     val genre_ids: List<Int>,
     val id: Int,
     val original_language: String,
@@ -17,6 +13,6 @@ data class Movie(
     val release_date: String,
     val title: String,
     val video: Boolean,
-    val vote_average: Int,
+    val vote_average: Double,
     val vote_count: Int
 )
