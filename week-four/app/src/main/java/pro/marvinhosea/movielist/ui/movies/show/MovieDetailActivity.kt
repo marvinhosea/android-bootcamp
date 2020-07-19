@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.coroutines.*
@@ -15,7 +16,6 @@ import pro.marvinhosea.movielist.utils.toast
 
 class MovieDetailActivity : AppCompatActivity() {
 
-    private val scope = MainScope()
     private lateinit var movieId: String
     private lateinit var movie: Movie
     private lateinit var movieDetailViewModel: MovieDetailViewModel
@@ -28,7 +28,7 @@ class MovieDetailActivity : AppCompatActivity() {
         movieId = intent.getStringExtra(getString(R.string.MOVIE_INTENT))
         movieDetailViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
 
-        scope.launch {
+        lifecycleScope.launch {
             movie = movieDetailViewModel.getMovie(movieId.toInt())
             if (movie.inWatchList){
                 drawable = R.drawable.baseline_remove_circle_outline_white_18dp
@@ -71,7 +71,7 @@ class MovieDetailActivity : AppCompatActivity() {
 
 
     private fun addToWatchList(): Int {
-        scope.launch {
+        lifecycleScope.launch {
             movie.inWatchList = !movie.inWatchList
             movieDetailViewModel.addToWatchList(movie)
         }
@@ -80,14 +80,12 @@ class MovieDetailActivity : AppCompatActivity() {
             toast("Movie added to your watch list")
             return R.drawable.baseline_remove_circle_outline_white_18dp
         }
-
         toast("Movie removed from your watch list")
         return R.drawable.baseline_favorite_border_white_18dp
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        scope.cancel()
+        lifecycleScope.cancel()
     }
 }
