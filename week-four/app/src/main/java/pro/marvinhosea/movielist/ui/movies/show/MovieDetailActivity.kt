@@ -20,7 +20,6 @@ class MovieDetailActivity : AppCompatActivity() {
     private lateinit var movie: Movie
     private lateinit var movieDetailViewModel: MovieDetailViewModel
     private var drawable = R.drawable.baseline_favorite_border_white_18dp
-    private lateinit var menu: Menu
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

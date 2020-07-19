@@ -51,7 +51,6 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         movieRecyclerView.adapter = adapter
-
         if (!networkStatusChecker?.hasInternetConnection()!!) {
             requireContext().toast("No Internet Connection")
             lifecycleScope.launch {
@@ -59,7 +58,6 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
             }
             return
         }
-
         getMovies("Top Rated Movies")
     }
 
