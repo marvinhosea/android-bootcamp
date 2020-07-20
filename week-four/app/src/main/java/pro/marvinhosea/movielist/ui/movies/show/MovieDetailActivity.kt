@@ -10,9 +10,9 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.coroutines.*
 import pro.marvinhosea.movielist.R
-import pro.marvinhosea.movielist.adapters.MOVIE_IMG_BASE_PATH
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.utils.toast
+import java.io.File
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -30,7 +30,7 @@ class MovieDetailActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             movie = movieDetailViewModel.getMovie(movieId.toInt())
-            if (movie.inWatchList){
+            if (movie.inWatchList) {
                 drawable = R.drawable.baseline_remove_circle_outline_white_18dp
             }
             displayMovie()
@@ -39,12 +39,14 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun displayMovie() {
-        Glide.with(this)
-            .load(MOVIE_IMG_BASE_PATH + movie.posterLink)
-            .placeholder(R.drawable.grinch)
-            .error(R.drawable.grinch)
-            .fallback(R.drawable.grinch)
-            .into(detail_image_view)
+        if (movie.posterLink != null) {
+            Glide.with(this)
+                .load(File(movie.posterLink))
+                .placeholder(R.drawable.grinch)
+                .error(R.drawable.grinch)
+                .fallback(R.drawable.grinch)
+                .into(detail_image_view)
+        }
 
         detail_movie_name.text = movie.name
         detail_movie_genre.text = getString(R.string.movie_rating, movie.rate.toString())
@@ -69,7 +71,6 @@ class MovieDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
     private fun addToWatchList(): Int {
         lifecycleScope.launch {
             movie.inWatchList = !movie.inWatchList
@@ -82,10 +83,5 @@ class MovieDetailActivity : AppCompatActivity() {
         }
         toast("Movie removed from your watch list")
         return R.drawable.baseline_favorite_border_white_18dp
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        lifecycleScope.cancel()
     }
 }

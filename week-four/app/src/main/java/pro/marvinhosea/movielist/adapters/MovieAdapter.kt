@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.data.models.Movie
+import java.io.File
 
 const val MOVIE_IMG_BASE_PATH = "https://image.tmdb.org/t/p/original/"
 
@@ -31,15 +32,15 @@ class MovieAdapter(
     override fun getItemCount() = movies.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         holder.movieName.text = movies[position].name
-
-        Glide.with(holder.itemView)
-            .load(MOVIE_IMG_BASE_PATH + movies[position].posterLink)
-            .placeholder(R.drawable.grinch)
-            .error(R.drawable.grinch)
-            .fallback(R.drawable.grinch)
-            .into(holder.moviePosterImageView)
+        if (movies[position].posterLink != null){
+            Glide.with(holder.itemView)
+                .load(File(movies[position].posterLink))
+                .placeholder(R.drawable.grinch)
+                .error(R.drawable.grinch)
+                .fallback(R.drawable.grinch)
+                .into(holder.moviePosterImageView)
+        }
 
         holder.itemView.setOnClickListener {
             clickListener.movieClicked(movies[position])

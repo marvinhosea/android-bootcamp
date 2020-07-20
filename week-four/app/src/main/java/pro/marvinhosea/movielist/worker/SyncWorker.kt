@@ -1,67 +1,37 @@
 package pro.marvinhosea.movielist.worker
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
-import android.content.Intent
+import android.os.Build
 import android.util.Log
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import androidx.work.Worker
+import androidx.core.app.NotificationCompat
+import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import androidx.work.workDataOf
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.serialization.json.Json.Default.context
-import pro.marvinhosea.movielist.data.models.Movie
-import pro.marvinhosea.movielist.data.models.Success
-import pro.marvinhosea.movielist.data.models.response.Result
+import pro.marvinhosea.movielist.R
+import pro.marvinhosea.movielist.adapters.MOVIE_IMG_BASE_PATH
+import pro.marvinhosea.movielist.data.models.*
 import pro.marvinhosea.movielist.networking.RemoteApi
 import pro.marvinhosea.movielist.networking.buildApiService
 import pro.marvinhosea.movielist.repository.MoviesRepository
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
-import pro.marvinhosea.movielist.ui.login.UserLoginActivity
-import pro.marvinhosea.movielist.utils.toast
 import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
-import android.widget.Toast.makeText as makeText1
 
 class SyncWorker(context: Context, workerParameters: WorkerParameters) :
-    Worker(context, workerParameters) {
+    CoroutineWorker(context, workerParameters) {
     private val apiService by lazy { buildApiService() }
     private val remoteApi by lazy { RemoteApi(apiService) }
-    override fun doWork(): Result {
-        val imagesDownloadPath = "https://www.wallpaperup.com/uploads/wallpapers/2013/03/21/55924/3b61c716155c6fa88f321da6d4655767.jpg"
-        val imageUrl = URL(imagesDownloadPath)
-        Log.d("imagePath", "running")
-        val connection = imageUrl.openConnection() as HttpURLConnection
-        connection.doInput = true
-        connection.connect()
 
-        val imagePath = "${System.currentTimeMillis()}.jpg"
-        val inputStream = connection.inputStream
-        val file = File(applicationContext.externalMediaDirs.first(), imagePath)
-
-        val outputStream = FileOutputStream(file)
-        outputStream.use { output ->
-            val buffer = ByteArray(4 * 1024)
-            var byteCount = inputStream.read(buffer)
-
-            while (byteCount > 0) {
-                output.write(buffer, 0, byteCount)
-                byteCount = inputStream.read(buffer)
-            }
-
-            output.flush()
+    override suspend fun doWork(): Result {
+        val movieTypes = arrayListOf(UPCOMING_CATEGORY, POPULAR_CATEGORY, NOW_PLAYING_CATEGORY, TOP_RATED_CATEGORY)
+        movieTypes.forEach {
+            getMovies(it)
         }
-
-        val movies = GlobalScope.launch {
-            getMovies("Upcoming Movies")
-        }
-        val output = workDataOf("image_path" to file.absolutePath)
-        Log.d("imagePath", output.toString())
-        return Result.success(output)
+        sendNotification()
+        return Result.success()
     }
 
     private suspend fun getMovies(category: String) {
@@ -75,14 +45,14 @@ class SyncWorker(context: Context, workerParameters: WorkerParameters) :
         }
 
         if (results is Success) {
-            val movies = formatResponseMovies(results.data)
+            val movies = formatResponseMovies(results.data, category)
             MoviesRepository(applicationContext).storeMovies(movies)
         } else {
-            Log.d("Error1", "testing ${results.toString()}")
+            Log.d("Error1", "An error occurred")
         }
     }
 
-    private fun formatResponseMovies(moviesResponse: List<pro.marvinhosea.movielist.data.models.response.Result>): List<Movie> {
+    private fun formatResponseMovies(moviesResponse: List<pro.marvinhosea.movielist.data.models.response.Result>, category: String): List<Movie> {
         val movies = mutableListOf<Movie>()
         val userName = UserSharedPrefRepository.getUserName()
 
@@ -93,7 +63,8 @@ class SyncWorker(context: Context, workerParameters: WorkerParameters) :
                     it.title,
                     it.overview,
                     it.vote_average,
-                    it.poster_path,
+                    it.poster_path?.let { it1 -> downloadImage(it1.replace("/", "")) },
+                    category,
                     it.release_date,
                     false,
                     userName
@@ -101,5 +72,48 @@ class SyncWorker(context: Context, workerParameters: WorkerParameters) :
             )
         }
         return movies
+    }
+
+    private fun downloadImage(posterUrl: String): String {
+        val imageUrl = URL(MOVIE_IMG_BASE_PATH + posterUrl)
+        Log.d("imagePath", posterUrl)
+        val connection = imageUrl.openConnection() as HttpURLConnection
+        connection.doInput = true
+        connection.connect()
+
+        val inputStream = connection.inputStream
+        val file = File(applicationContext.externalMediaDirs.first(), posterUrl)
+
+        val outputStream = FileOutputStream(file)
+        outputStream.use { output ->
+            val buffer = ByteArray(4 * 1024)
+            var byteCount = inputStream.read(buffer)
+
+            while (byteCount > 0) {
+                output.write(buffer, 0, byteCount)
+                byteCount = inputStream.read(buffer)
+            }
+            output.flush()
+        }
+
+        return file.absolutePath
+    }
+
+    private fun sendNotification() {
+        val notificationManager =
+            applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel =
+                NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT)
+            notificationManager.createNotificationChannel(channel)
+        }
+        val notification: NotificationCompat.Builder = NotificationCompat.Builder(
+            applicationContext,
+            "default"
+        )
+            .setContentTitle("Movie Sync completed")
+            .setContentText("Up to date all movies synced successfully")
+            .setSmallIcon(R.mipmap.ic_launcher)
+        notificationManager.notify(1, notification.build())
     }
 }
