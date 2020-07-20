@@ -25,8 +25,6 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     private var userSharedRepository = UserSharedPrefRepository
     private val adapter by lazy { MovieAdapter(mutableListOf(), this) }
 //    private val networkStatusChecker by lazy { activity?.getSystemService(ConnectivityManager::class.java)?.let { NetworkStatusChecker(it) } }
-    private val apiService by lazy { buildApiService() }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
