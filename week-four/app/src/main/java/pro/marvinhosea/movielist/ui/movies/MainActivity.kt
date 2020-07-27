@@ -1,19 +1,26 @@
 package pro.marvinhosea.movielist.ui.movies
 
+import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.work.*
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.networking.NetworkStatusChecker
 import pro.marvinhosea.movielist.ui.login.UserLoginActivity
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
+import pro.marvinhosea.movielist.utils.toast
 import pro.marvinhosea.movielist.worker.SyncWorker
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private var instance: MainActivity? = null
+        fun getApplicationContext(): Context {
+            return instance!!.applicationContext
+        }
+    }
     private var userSharedRepository = UserSharedPrefRepository
     private val networkStatusChecker by lazy {
         NetworkStatusChecker(getSystemService(ConnectivityManager::class.java))
@@ -23,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-
         userSharedRepository.init(this)
         syncMovies()
     }
@@ -55,15 +61,14 @@ class MainActivity : AppCompatActivity() {
                 .setRequiresStorageNotLow(true)
                 .build()
 
-            val downloadImageWorker = PeriodicWorkRequestBuilder<SyncWorker>(16, TimeUnit.MINUTES)
+            val syncWorker = PeriodicWorkRequestBuilder<SyncWorker>(1, TimeUnit.HOURS)
                 .setConstraints(constraints)
                 .build()
 
             val workManager = WorkManager.getInstance(this)
-            workManager.enqueue(downloadImageWorker)
-
-            workManager.getWorkInfoByIdLiveData(downloadImageWorker.id).observe(this, Observer {
-            })
+            workManager.enqueue(syncWorker)
+        } else {
+            toast("No internet connection")
         }
     }
 }

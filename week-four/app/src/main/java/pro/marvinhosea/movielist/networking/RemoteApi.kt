@@ -12,7 +12,7 @@ class RemoteApi(private val apiServiceApi: RemoteServiceApi) {
         val data = apiServiceApi.getUpcomingMovies(API_KEY)
 
         Success(data.results)
-    } catch (error: Throwable){
+    } catch (error: Throwable) {
         Failure(error)
     }
 

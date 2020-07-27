@@ -1,13 +1,13 @@
 package pro.marvinhosea.movielist.ui.movies.show
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import pro.marvinhosea.movielist.App
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.repository.MoviesRepository
 
-class MovieDetailViewModel(application: Application) : AndroidViewModel(application) {
+class MovieDetailViewModel : ViewModel() {
     private val movieRepository by lazy {
-        MoviesRepository(application)
+        MoviesRepository(App.getAppContext())
     }
 
     /**
@@ -17,7 +17,8 @@ class MovieDetailViewModel(application: Application) : AndroidViewModel(applicat
         return movieRepository.getMovie(movieId)
     }
 
-    suspend fun addToWatchList(movie: Movie) {
+    suspend fun addToWatchList(movie: Movie): Boolean {
         movieRepository.addMovieToWatchList(movie)
+        return true
     }
 }

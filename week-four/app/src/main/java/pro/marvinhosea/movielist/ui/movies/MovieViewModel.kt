@@ -1,14 +1,16 @@
 package pro.marvinhosea.movielist.ui.movies
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import pro.marvinhosea.movielist.App
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.repository.MoviesRepository
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
 
-open class MovieViewModel(application: Application) : AndroidViewModel(application) {
-    private val movieRepository = MoviesRepository(application.applicationContext)
+open class MovieViewModel : ViewModel() {
+    private val movieRepository = MoviesRepository(App.getAppContext())
+    private var userSharedRepository = UserSharedPrefRepository
 
     fun getAllMovies(): LiveData<List<Movie>> {
         return movieRepository.getAllMovies()
@@ -18,16 +20,16 @@ open class MovieViewModel(application: Application) : AndroidViewModel(applicati
         return movieRepository.getMoviesByCategory(category)
     }
 
-    suspend fun saveMovies(moviesToSaveToRoom: List<Movie>) {
-        movieRepository.storeMovies(moviesToSaveToRoom)
-    }
-
     suspend fun myWatchListMovies(): List<Movie> {
         val movies = movieRepository.getMyMoviesWatchlist(UserSharedPrefRepository.getUserName(), true)
         if (movies.isNullOrEmpty()) {
             return emptyList<Movie>()
         }
-
         return movies
+    }
+
+    fun logoutUser(context: Context) {
+        userSharedRepository.init(context)
+        userSharedRepository.logoutUser()
     }
 }

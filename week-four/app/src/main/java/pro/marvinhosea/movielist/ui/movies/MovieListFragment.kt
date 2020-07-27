@@ -14,12 +14,10 @@ import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.movies.show.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
 import pro.marvinhosea.movielist.data.models.*
-import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
 import pro.marvinhosea.movielist.ui.login.UserLoginActivity
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     private val movieViewModel by lazy { ViewModelProvider(this).get(MovieViewModel::class.java) }
-    private var userSharedRepository = UserSharedPrefRepository
     private val adapter by lazy { MovieAdapter(mutableListOf(), this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,8 +64,7 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
     }
 
     private fun logOut() {
-        activity?.applicationContext?.let { userSharedRepository.init(it) }
-        userSharedRepository.logoutUser()
+        activity?.applicationContext?.let { movieViewModel.logoutUser(it) }
 
         val intent = Intent(activity, UserLoginActivity::class.java)
         startActivity(intent)

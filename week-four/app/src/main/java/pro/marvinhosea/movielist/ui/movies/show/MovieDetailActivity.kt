@@ -10,12 +10,11 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.coroutines.*
 import pro.marvinhosea.movielist.R
+import pro.marvinhosea.movielist.adapters.MOVIE_IMG_BASE_PATH
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.utils.toast
-import java.io.File
 
 class MovieDetailActivity : AppCompatActivity() {
-
     private lateinit var movieId: String
     private lateinit var movie: Movie
     private lateinit var movieDetailViewModel: MovieDetailViewModel
@@ -39,15 +38,12 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun displayMovie() {
-        if (movie.posterLink != null) {
-            Glide.with(this)
-                .load(File(movie.posterLink))
-                .placeholder(R.drawable.grinch)
-                .error(R.drawable.grinch)
-                .fallback(R.drawable.grinch)
-                .into(detail_image_view)
-        }
-
+        Glide.with(this)
+            .load(MOVIE_IMG_BASE_PATH + movie.posterLink)
+            .placeholder(R.drawable.grinch)
+            .error(R.drawable.grinch)
+            .fallback(R.drawable.grinch)
+            .into(detail_image_view)
         detail_movie_name.text = movie.name
         detail_movie_genre.text = getString(R.string.movie_rating, movie.rate.toString())
         detail_release_date.text = getString(R.string.movie_release_date_text, movie.releaseDate)
@@ -67,7 +63,6 @@ class MovieDetailActivity : AppCompatActivity() {
                 item.setIcon(addToWatchList())
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 
