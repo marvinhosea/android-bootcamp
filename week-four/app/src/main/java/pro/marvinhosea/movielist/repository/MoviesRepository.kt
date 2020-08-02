@@ -7,23 +7,22 @@ import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LiveData
+import org.koin.core.KoinComponent
+import pro.marvinhosea.movielist.App
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.data.db.dao.MovieDao
 import pro.marvinhosea.movielist.data.db.MovieDatabase
 import pro.marvinhosea.movielist.data.models.Success
 import pro.marvinhosea.movielist.networking.RemoteApi
-import pro.marvinhosea.movielist.networking.buildApiService
 
-class MoviesRepository(private val context: Context) {
-    private val movieDao: MovieDao by lazy { MovieDatabase.getDatabase(context).movieDao() }
-    private val apiService by lazy { buildApiService() }
-    private val remoteApi by lazy { RemoteApi(apiService) }
+open class MoviesRepository(private val remoteApi: RemoteApi) : KoinComponent {
+    private val movieDao: MovieDao by lazy { MovieDatabase.getDatabase().movieDao() }
 
     /**
      * Store list of movies
      */
-    suspend fun storeMovies(movies: List<Movie>) {
+    private suspend fun storeMovies(movies: List<Movie>) {
         movieDao.storeMovies(movies)
     }
 
@@ -98,14 +97,14 @@ class MoviesRepository(private val context: Context) {
 
     fun sendNotification() {
         val notificationManager =
-            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            App.getAppContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel =
                 NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT)
             notificationManager.createNotificationChannel(channel)
         }
         val notification: NotificationCompat.Builder = NotificationCompat.Builder(
-            context,
+            App.getAppContext(),
             "default"
         )
             .setContentTitle("Movie Sync completed")

@@ -15,12 +15,6 @@ import pro.marvinhosea.movielist.worker.SyncWorker
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        private var instance: MainActivity? = null
-        fun getApplicationContext(): Context {
-            return instance!!.applicationContext
-        }
-    }
     private var userSharedRepository = UserSharedPrefRepository
     private val networkStatusChecker by lazy {
         NetworkStatusChecker(getSystemService(ConnectivityManager::class.java))
@@ -31,7 +25,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         userSharedRepository.init(this)
-        syncMovies()
+        if (userSharedRepository.isUserLoggedIn()) {
+            syncMovies()
+        }
     }
 
     override fun onStart() {
@@ -61,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 .setRequiresStorageNotLow(true)
                 .build()
 
-            val syncWorker = PeriodicWorkRequestBuilder<SyncWorker>(1, TimeUnit.HOURS)
+            val syncWorker = PeriodicWorkRequestBuilder<SyncWorker>(15, TimeUnit.MINUTES)
                 .setConstraints(constraints)
                 .build()
 

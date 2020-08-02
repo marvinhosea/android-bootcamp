@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import pro.marvinhosea.movielist.App
 import pro.marvinhosea.movielist.data.db.dao.MovieDao
 import pro.marvinhosea.movielist.data.models.Movie
 
@@ -15,7 +16,7 @@ abstract class MovieDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: MovieDatabase? = null
 
-        fun getDatabase(context: Context): MovieDatabase {
+        fun getDatabase(): MovieDatabase {
 
             val tempInstance = INSTANCE
 
@@ -24,7 +25,7 @@ abstract class MovieDatabase : RoomDatabase() {
             }
 
             synchronized(this) {
-                val instance = Room.databaseBuilder(context, MovieDatabase::class.java, "movielist")
+                val instance = Room.databaseBuilder(App.getAppContext(), MovieDatabase::class.java, "movielist")
                     .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance

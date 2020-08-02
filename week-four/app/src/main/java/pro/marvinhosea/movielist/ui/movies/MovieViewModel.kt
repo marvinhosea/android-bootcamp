@@ -3,13 +3,11 @@ package pro.marvinhosea.movielist.ui.movies
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import pro.marvinhosea.movielist.App
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.repository.MoviesRepository
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
 
-open class MovieViewModel : ViewModel() {
-    private val movieRepository = MoviesRepository(App.getAppContext())
+open class MovieViewModel(private val movieRepository: MoviesRepository) : ViewModel() {
     private var userSharedRepository = UserSharedPrefRepository
 
     fun getAllMovies(): LiveData<List<Movie>> {
@@ -23,7 +21,7 @@ open class MovieViewModel : ViewModel() {
     suspend fun myWatchListMovies(): List<Movie> {
         val movies = movieRepository.getMyMoviesWatchlist(UserSharedPrefRepository.getUserName(), true)
         if (movies.isNullOrEmpty()) {
-            return emptyList<Movie>()
+            return emptyList()
         }
         return movies
     }
