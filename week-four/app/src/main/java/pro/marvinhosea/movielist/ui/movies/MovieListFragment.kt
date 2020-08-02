@@ -6,10 +6,10 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import pro.marvinhosea.movielist.R
 import pro.marvinhosea.movielist.ui.movies.show.MovieDetailActivity
 import pro.marvinhosea.movielist.adapters.MovieAdapter
@@ -17,7 +17,7 @@ import pro.marvinhosea.movielist.data.models.*
 import pro.marvinhosea.movielist.ui.login.UserLoginActivity
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieListClickListener {
-    private val movieViewModel by lazy { ViewModelProvider(this).get(MovieViewModel::class.java) }
+    private val movieViewModel by inject<MovieViewModel>()
     private val adapter by lazy { MovieAdapter(mutableListOf(), this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
