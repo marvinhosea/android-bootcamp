@@ -1,11 +1,15 @@
 package pro.marvinhosea.movielist.di
 
+import android.net.ConnectivityManager
+import androidx.core.content.ContextCompat.getSystemService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import pro.marvinhosea.movielist.BuildConfig
+import pro.marvinhosea.movielist.networking.BASE_URL
+import pro.marvinhosea.movielist.networking.NetworkStatusChecker
 import pro.marvinhosea.movielist.networking.RemoteApi
 import pro.marvinhosea.movielist.networking.RemoteServiceApi
 import retrofit2.Retrofit
@@ -13,12 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val networkModule: Module = module {
-    single(named("BASE_URL")) {
-        "https://api.themoviedb.org/3/"
-    }
-    single(named("API_KEY")) {
-        "65e19526768366114fec4fdc0b90262c"
-    }
     single {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -35,9 +33,12 @@ val networkModule: Module = module {
         client.build()
     }
     single {
+        GsonConverterFactory.create()
+    }
+    single {
         Retrofit.Builder()
-            .baseUrl(get<String>(named("BASE_URL")))
-            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .addConverterFactory(get<GsonConverterFactory>())
             .client(get())
             .build()
     }

@@ -9,8 +9,7 @@ import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.networking.RemoteApi
 import pro.marvinhosea.movielist.repository.MoviesRepository
 
-class MovieDetailViewModel : ViewModel(), KoinComponent {
-    private val movieRepository by inject<MoviesRepository>()
+class MovieDetailViewModel(private val movieRepository: MoviesRepository) : ViewModel(), KoinComponent {
 
     /**
      * Retrieve movie by movie ID

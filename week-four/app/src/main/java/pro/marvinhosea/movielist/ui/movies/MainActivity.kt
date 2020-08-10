@@ -1,6 +1,5 @@
 package pro.marvinhosea.movielist.ui.movies
 
-import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Bundle

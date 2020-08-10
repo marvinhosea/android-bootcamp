@@ -16,9 +16,7 @@ import pro.marvinhosea.movielist.data.db.MovieDatabase
 import pro.marvinhosea.movielist.data.models.Success
 import pro.marvinhosea.movielist.networking.RemoteApi
 
-open class MoviesRepository(private val remoteApi: RemoteApi) : KoinComponent {
-    private val movieDao: MovieDao by lazy { MovieDatabase.getDatabase().movieDao() }
-
+open class MoviesRepository(private val remoteApi: RemoteApi, private val movieDao: MovieDao) : KoinComponent {
     /**
      * Store list of movies
      */
@@ -95,21 +93,4 @@ open class MoviesRepository(private val remoteApi: RemoteApi) : KoinComponent {
         return movies
     }
 
-    fun sendNotification() {
-        val notificationManager =
-            App.getAppContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel =
-                NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT)
-            notificationManager.createNotificationChannel(channel)
-        }
-        val notification: NotificationCompat.Builder = NotificationCompat.Builder(
-            App.getAppContext(),
-            "default"
-        )
-            .setContentTitle("Movie Sync completed")
-            .setContentText("Up to date all movies synced successfully")
-            .setSmallIcon(R.mipmap.ic_launcher)
-        notificationManager.notify(1, notification.build())
-    }
 }

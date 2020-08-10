@@ -1,15 +1,18 @@
 package pro.marvinhosea.movielist.ui.movies.show
 
+import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.coroutines.*
+import org.koin.android.ext.android.inject
 import pro.marvinhosea.movielist.R
+import pro.marvinhosea.movielist.R.drawable.baseline_favorite_border_white_18dp
 import pro.marvinhosea.movielist.adapters.MOVIE_IMG_BASE_PATH
 import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.utils.toast
@@ -17,16 +20,16 @@ import pro.marvinhosea.movielist.utils.toast
 class MovieDetailActivity : AppCompatActivity() {
     private lateinit var movieId: String
     private lateinit var movie: Movie
-    private lateinit var movieDetailViewModel: MovieDetailViewModel
-    private var drawable = R.drawable.baseline_favorite_border_white_18dp
+    private lateinit var frontAnim: AnimatorSet
+    private lateinit var backAnim: AnimatorSet
+    private var isPoster = true
+    private val movieDetailViewModel by inject<MovieDetailViewModel>()
+    private var drawable = baseline_favorite_border_white_18dp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
-
         movieId = intent.getStringExtra(getString(R.string.MOVIE_INTENT))
-        movieDetailViewModel = ViewModelProvider(this).get(MovieDetailViewModel::class.java)
-
         lifecycleScope.launch {
             movie = movieDetailViewModel.getMovie(movieId.toInt())
             if (movie.inWatchList) {
@@ -34,6 +37,31 @@ class MovieDetailActivity : AppCompatActivity() {
             }
             displayMovie()
             title = movie.name
+        }
+
+        val scale: Float = applicationContext.resources.displayMetrics.density
+        imageCardView.cameraDistance = 8000 * scale
+        movieDescription.cameraDistance = 8000 * scale
+
+        frontAnim = AnimatorInflater.loadAnimator(this, R.animator.front_animator) as AnimatorSet
+        backAnim = AnimatorInflater.loadAnimator(this, R.animator.back_animator) as AnimatorSet
+
+        flipBtn.setOnClickListener {
+            isPoster = if (isPoster) {
+                frontAnim.setTarget(imageCardView)
+                backAnim.setTarget(movieDescription)
+                frontAnim.start()
+                backAnim.start()
+                flipBtn.setText(getString(R.string.view_movie_poster))
+                false
+            } else {
+                frontAnim.setTarget(movieDescription)
+                backAnim.setTarget(imageCardView)
+                backAnim.start()
+                frontAnim.start()
+                flipBtn.setText(getString(R.string.view_detail))
+                true
+            }
         }
     }
 
@@ -77,6 +105,6 @@ class MovieDetailActivity : AppCompatActivity() {
             return R.drawable.baseline_remove_circle_outline_white_18dp
         }
         toast("Movie removed from your watch list")
-        return R.drawable.baseline_favorite_border_white_18dp
+        return baseline_favorite_border_white_18dp
     }
 }

@@ -7,8 +7,7 @@ import pro.marvinhosea.movielist.data.models.Movie
 import pro.marvinhosea.movielist.repository.MoviesRepository
 import pro.marvinhosea.movielist.repository.UserSharedPrefRepository
 
-open class MovieViewModel(private val movieRepository: MoviesRepository) : ViewModel() {
-    private var userSharedRepository = UserSharedPrefRepository
+open class MovieViewModel(private val movieRepository: MoviesRepository, private var userSharedRepository: UserSharedPrefRepository) : ViewModel() {
 
     fun getAllMovies(): LiveData<List<Movie>> {
         return movieRepository.getAllMovies()
