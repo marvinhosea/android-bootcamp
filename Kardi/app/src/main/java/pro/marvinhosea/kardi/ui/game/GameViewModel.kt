@@ -1,4 +1,4 @@
-package pro.marvinhosea.kardi.ui.dashboard
+package pro.marvinhosea.kardi.ui.game
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

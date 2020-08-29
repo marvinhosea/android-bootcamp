@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="pro.marvinhosea.kardi.ui.dashboard.GameFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_game_dashboard"
+        android:name="pro.marvinhosea.kardi.ui.game.GameDashBoardFragment"
+        android:label="@string/title_game"
+        tools:layout="@layout/game_layout" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_account"
         android:name="pro.marvinhosea.kardi.ui.notifications.AccountFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_account"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
