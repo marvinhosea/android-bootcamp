@@ -23,9 +23,9 @@ class SelectedCardAdapter(private var cards: MutableList<Card>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Glide.with(holder.itemView)
-            .load(R.drawable.card)
-            .placeholder(R.drawable.card)
-            .error(R.drawable.card)
+            .load(R.drawable.nine_flower)
+            .placeholder(R.drawable.nine_flower)
+            .error(R.drawable.nine_flower)
             .into(holder.cardImage)
     }
 }
