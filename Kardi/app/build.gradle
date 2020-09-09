@@ -53,13 +53,12 @@ dependencies {
     implementation 'com.cleveroad:fan-layout-manager:1.0.5'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.github.amyu:StackCardLayoutManager:1.0'
     implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'
     implementation 'nl.dionsegijn:konfetti:1.2.2' //TODO: implement this
-    implementation 'com.github.amyu:StackCardLayoutManager:1.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //Experiment
 }

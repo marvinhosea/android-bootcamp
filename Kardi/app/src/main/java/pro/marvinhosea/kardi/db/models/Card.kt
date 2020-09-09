@@ -5,6 +5,7 @@ data class Card(
     val color: String,
     val suit: String,
     val pip: String,
-    val value: Int
+    val value: Int,
+    val poster: String
 ) {
 }

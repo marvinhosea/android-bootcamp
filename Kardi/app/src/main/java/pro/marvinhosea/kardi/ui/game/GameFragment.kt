@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.cleveroad.fanlayoutmanager.FanLayoutManager
 import com.cleveroad.fanlayoutmanager.FanLayoutManagerSettings
@@ -44,12 +42,12 @@ class GameFragment : Fragment() {
             .build()
         fanLayoutManager = activity?.let { FanLayoutManager(it, fanLayoutSetting) }!!
         userCardsRecycleView.layoutManager = fanLayoutManager
-        selectedCardsRecycleView.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+//        selectedCardsRecycleView.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         playersRecycleView.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         val cards = mutableListOf<Card>()
         val players = mutableListOf<Player>()
         players.addAll(arrayListOf(Player("Marvin", "MC"), Player("Wanguba", "EC"), Player("Murimi", "MK")))
-        for (i in 1..52){
+        for (i in 1..10){
             cards.add(Card(
                 "spade",
                 "red",
@@ -60,6 +58,6 @@ class GameFragment : Fragment() {
         }
         userCardsRecycleView.adapter = CardAdapter(cards)
         playersRecycleView.adapter = PlayerAdapter(players)
-        selectedCardsRecycleView.adapter = SelectedCardAdapter(cards)
+//        selectedCardsRecycleView.adapter = SelectedCardAdapter(cards)
     }
 }
