@@ -14,6 +14,7 @@ import com.cleveroad.fanlayoutmanager.FanLayoutManagerSettings
 import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.android.synthetic.main.game_layout.*
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import pro.marvinhosea.kardi.KardiApp
 import pro.marvinhosea.kardi.R
 import pro.marvinhosea.kardi.adapters.CardAdapter
@@ -26,7 +27,7 @@ import pro.marvinhosea.kardi.respository.GameRepository
 
 class GameFragment : Fragment() {
 
-    private lateinit var gameModelView: GameViewModel
+    private val gameModelView by inject<GameViewModel>()
     private lateinit var fanLayoutManager: FanLayoutManager
 
     override fun onCreateView(
@@ -50,7 +51,6 @@ class GameFragment : Fragment() {
         fanLayoutManager = activity?.let { FanLayoutManager(it, fanLayoutSetting) }!!
         userCardsRecycleView.layoutManager = fanLayoutManager
         lifecycleScope.launch {
-            gameModelView = GameViewModel(GameRepository(KardiDb.getInstance(KardiApp.getAppContext()).cardDao()))
             val cards = gameModelView.dealCards()
             userCardsRecycleView.adapter = CardAdapter(cards)
         }

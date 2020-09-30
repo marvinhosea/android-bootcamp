@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/menu_menu_main.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/menu/menu_main.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/layout_fragment_movie_list.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/layout/fragment_movie_list.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/animator_back_animator.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/animator/back_animator.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/animator_front_animator.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/animator/front_animator.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/drawable_baseline_favorite_border_white_18dp.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/drawable/baseline_favorite_border_white_18dp.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/drawable_movie.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/drawable/movie.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/layout_activity_movie_detail.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/layout/activity_movie_detail.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/layout_movie_view_holder.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/layout/movie_view_holder.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/drawable_baseline_remove_circle_outline_white_18dp.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/drawable/baseline_remove_circle_outline_white_18dp.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/drawable_grinch.jpg.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/drawable/grinch.jpg"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/layout_activity_user_login.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/layout/activity_user_login.xml"
+    },
+    {
+        "merged": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/build/intermediates/res/merged/debug/menu_menu_detail.xml.flat",
+        "source": "/home/kodaTheCoder/dev/mobile/android-bootcamp/week-four/app/src/main/res/menu/menu_detail.xml"
+    }
+]
