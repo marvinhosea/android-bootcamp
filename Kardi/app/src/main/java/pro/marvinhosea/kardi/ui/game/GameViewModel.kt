@@ -1,13 +1,12 @@
 package pro.marvinhosea.kardi.ui.game
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import pro.marvinhosea.kardi.db.models.Card
+import pro.marvinhosea.kardi.respository.GameRepository
 
-class GameViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+class GameViewModel(private val gameRepository: GameRepository) : ViewModel() {
+    suspend fun dealCards(): MutableList<Card> {
+        return gameRepository.setGameCards()
     }
-    val text: LiveData<String> = _text
 }

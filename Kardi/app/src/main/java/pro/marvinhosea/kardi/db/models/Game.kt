@@ -3,11 +3,11 @@ package pro.marvinhosea.kardi.db.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "players")
-data class Player(
+@Entity(tableName = "games")
+data class Game(
     @PrimaryKey(autoGenerate = true)
-    val id: Int?,
-    var name: String,
-    var initial: String
-) {
-}
+    val id: Int,
+    val name: String,
+    val code: String,
+    val status: Boolean
+)

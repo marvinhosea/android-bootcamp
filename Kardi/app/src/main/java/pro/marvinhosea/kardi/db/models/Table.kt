@@ -4,12 +4,14 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "results")
-data class GameResult(
+@Entity(tableName = "tables")
+data class Table(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
+    @ColumnInfo(name = "added_by")
+    val addedBy: Int,
     @ColumnInfo(name = "game_id")
-    val gameId: String,
-    val winner: String,
-    val points: Int
+    val gameId: Int,
+    @ColumnInfo(name = "card_id")
+    val cardId: Int
 )

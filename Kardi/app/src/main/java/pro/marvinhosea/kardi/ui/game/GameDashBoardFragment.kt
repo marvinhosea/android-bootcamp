@@ -38,9 +38,10 @@ class GameDashBoardFragment : Fragment() {
         val results = mutableListOf<GameResult>()
         for (i in 1..56){
             results.add(GameResult(
+                i,
                 "GAMEID $i",
                 "Marvin Collins",
-                i
+                300
             ))
         }
         gameResults.adapter = GameResultAdapter(results)
