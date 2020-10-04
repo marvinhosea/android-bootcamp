@@ -17,5 +17,5 @@ interface CardDao {
     suspend fun updateCard(card: Card)
 
     @Query("SELECT * FROM cards")
-    fun allCards(): LiveData<List<Card>>
+    suspend fun allCards(): List<Card>
 }

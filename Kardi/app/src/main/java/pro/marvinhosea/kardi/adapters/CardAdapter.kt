@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import pro.marvinhosea.kardi.R
 import pro.marvinhosea.kardi.db.models.Card
 
-class CardAdapter(private var cards: MutableList<Card>) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+class CardAdapter(private var cards: List<Card>) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val cardImage: ImageView = itemView.findViewById(R.id.cardImage)
     }
@@ -23,7 +23,7 @@ class CardAdapter(private var cards: MutableList<Card>) : RecyclerView.Adapter<C
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Glide.with(holder.itemView)
-            .load(R.drawable.ten_of_diamonds)
+            .load(cards[position].poster)
             .placeholder(R.drawable.five_of_diamonds)
             .error(R.drawable.eight_of_clubs)
             .into(holder.cardImage)

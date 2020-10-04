@@ -17,4 +17,7 @@ interface GameDao {
 
     @Query("SELECT * FROM games")
     fun allGames(): LiveData<List<Game>>
+
+    @Query("SELECT * FROM games WHERE code = :code LIMIT 1")
+    suspend fun getGameByCode(code: String): Game
 }

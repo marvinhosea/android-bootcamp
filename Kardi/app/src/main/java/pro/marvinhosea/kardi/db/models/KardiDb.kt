@@ -10,9 +10,14 @@ import pro.marvinhosea.kardi.db.models.dao.*
     entities = [
         Card::class,
         Deck::class,
-        Game::class, GameResult::class, Player::class, PlayerHand::class,
-        Table::class],
-    version = 1)
+        Game::class,
+        GameResult::class,
+        Player::class,
+        PlayerHand::class,
+        Table::class,
+        GamePlayer::class
+    ],
+    version = 3)
 abstract class KardiDb : RoomDatabase() {
     abstract fun cardDao() : CardDao
     abstract fun deckDao() : DeckDao
@@ -20,6 +25,7 @@ abstract class KardiDb : RoomDatabase() {
     abstract fun playerDao() : PlayerDao
     abstract fun playerHandDao() : PlayerHandDao
     abstract fun tableDao() : TableDao
+    abstract fun gamePlayerDao() : GamePlayerDao
     companion object {
         @Volatile
         private var INSTANCE : KardiDb? = null

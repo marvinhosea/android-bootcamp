@@ -6,12 +6,12 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "cards")
 data class Card(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int?,
     val name: String,
     val color: String,
     val suit: String,
     val pip: String,
     val value: Int,
-    val poster: String
+    val poster: Int?
 ) {
 }

@@ -4,12 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "decks")
-data class Deck(
+@Entity(tableName = "game_players")
+data class GamePlayer(
     @PrimaryKey(autoGenerate = true)
-    val id: Int?,
+    val index: Int?,
     @ColumnInfo(name = "game_id")
     val gameId: Int,
-    @ColumnInfo(name = "card_id")
-    val cardId: Int
-)
+    @ColumnInfo(name = "player_id")
+    val playerId: Int
+) {
+}
